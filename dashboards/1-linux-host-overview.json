@@ -1,0 +1,520 @@
+
+
+{
+    "type": "DashboardV2SyncDefinition",
+    "name": "1. Telegraf - Linux Host Overview",
+    "description": "",
+    "title": "1. Telegraf - Linux Host Overview",
+    "rootPanel": null,
+    "theme": "Light",
+    "topologyLabelMap": {
+        "data": {
+            "component": [
+                "os-linux"
+            ],
+            "environment": [
+                "*"
+            ],
+            "service": [
+                "*"
+            ]
+        }
+    },
+    "refreshInterval": 0,
+    "timeRange": {
+        "type": "BeginBoundedTimeRange",
+        "from": {
+            "type": "RelativeTimeRangeBoundary",
+            "relativeTime": "-6h"
+        },
+        "to": null
+    },
+    "layout": {
+        "layoutType": "Grid",
+        "layoutStructures": [
+            {
+                "key": "panel00C9F28BBB06684B",
+                "structure": "{\"height\":9,\"width\":11,\"x\":0,\"y\":7}"
+            },
+            {
+                "key": "panelBADFEC9FB200F948",
+                "structure": "{\"height\":9,\"width\":13,\"x\":11,\"y\":7}"
+            },
+            {
+                "key": "panel8B5FCB7FBE07C94E",
+                "structure": "{\"height\":6,\"width\":24,\"x\":0,\"y\":0}"
+            },
+            {
+                "key": "panel92CD5C5BBBD85B47",
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":17}"
+            },
+            {
+                "key": "panel75D0625DAFD8F941",
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":17}"
+            },
+            {
+                "key": "panel5C80993FBF032B42",
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":17}"
+            },
+            {
+                "key": "panelPANE-671A15519F585A41",
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":23}"
+            },
+            {
+                "key": "panel6EF66C8E949BE84B",
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":16}"
+            },
+            {
+                "key": "panel438D444586EA5B4C",
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":6}"
+            },
+            {
+                "key": "panel86B1F6178434B944",
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":24}"
+            },
+            {
+                "key": "panel57F0D0A3B6B4784A",
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":24}"
+            },
+            {
+                "key": "panelBFC34F05904AEA4C",
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":30}"
+            },
+            {
+                "key": "panel26784B32B0D09942",
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":31}"
+            },
+            {
+                "key": "panel06CFF4D9930ABB4D",
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":31}"
+            },
+            {
+                "key": "panel0831F9CEB35C6A4E",
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":24}"
+            }
+        ]
+    },
+    "panels": [
+        {
+            "id": null,
+            "key": "panel00C9F28BBB06684B",
+            "title": "CPU % Per Host",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"cpu\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}}\"}},{\"series\":[],\"queries\":[\"B\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}} - {{environment}}\"}}],\"hiddenQueryKeys\":[\"A\"]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=cpu_usage_idle\n| avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "100 - #A along _sourcehost,service,environment",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": true,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panelBADFEC9FB200F948",
+            "title": "CPU Used %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":0,\"to\":90,\"color\":\"#16943e\"},{\"from\":90,\"to\":95,\"color\":\"#f7995b\"},{\"from\":95,\"to\":100,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[\"A\"],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=cpu_usage_idle\n| avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "100 - #A along _sourcehost,service,environment",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-1h"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panel8B5FCB7FBE07C94E",
+            "title": "Matching Hosts Table",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"titleFontSize\":9,\"labelFontSize\":9}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":11,\"mode\":\"distribution\",\"decimals\":0},\"legend\":{\"enabled\":false},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"num CPUs\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf metric=system_n_cpus component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} \n| avg by _sourcehost,environment,service,_collector,_source",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel92CD5C5BBBD85B47",
+            "title": "Load 5m ",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"load\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}}\"}},{\"series\":[],\"queries\":[\"B\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}} - {{environment}}\"}}],\"hiddenQueryKeys\":[]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=system_load5\n| avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel75D0625DAFD8F941",
+            "title": "Load 15m",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"load\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}}\"}},{\"series\":[],\"queries\":[\"B\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}} - {{environment}}\"}}],\"hiddenQueryKeys\":[]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=system_load15\n| avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel5C80993FBF032B42",
+            "title": "Process Count",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"prcoesses\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}}\"}},{\"series\":[],\"queries\":[\"B\"],\"properties\":{\"name\":\"{{_sourcehost}} - {{service}} - {{environment}}\"}}],\"hiddenQueryKeys\":[]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=processes_total\n| avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-671A15519F585A41",
+            "title": "Disk and Swap",
+            "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\"},\"series\":{},\"legend\":{\"enabled\":false}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "TextPanel",
+            "text": ""
+        },
+        {
+            "id": null,
+            "key": "panel6EF66C8E949BE84B",
+            "title": "Load and Processes",
+            "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\"},\"series\":{},\"legend\":{\"enabled\":false}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "TextPanel",
+            "text": ""
+        },
+        {
+            "id": null,
+            "key": "panel438D444586EA5B4C",
+            "title": "CPU",
+            "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\"},\"series\":{},\"legend\":{\"enabled\":false}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "TextPanel",
+            "text": ""
+        },
+        {
+            "id": null,
+            "key": "panel86B1F6178434B944",
+            "title": "Disk - Inodes Used %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"inodes\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"A\",\"B\"],\"overrides\":[]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=disk_inodes_used\n| avg by _sourcehost,service,environment,path,device",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=disk_inodes_total\n| avg by _sourcehost,service,environment,path,device",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "100 * (#A / #B)",
+                    "queryType": "Metrics",
+                    "queryKey": "C",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel57F0D0A3B6B4784A",
+            "title": "Disk -  Used Percent",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{path}} - {{device}} - {{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=disk_used_percent \n| avg by _sourcehost,service,environment,path,device",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelBFC34F05904AEA4C",
+            "title": "Net",
+            "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\"},\"series\":{},\"legend\":{\"enabled\":false}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "TextPanel",
+            "text": ""
+        },
+        {
+            "id": null,
+            "key": "panel26784B32B0D09942",
+            "title": "net_bytes_recv ",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"bytes\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"unit\":{\"value\":\"B\",\"isCustom\":false}}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{interface}} - {{_sourcehost}}\"}}],\"hiddenQueryKeys\":[]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}}  metric=net_bytes_recv \n| rate increasing\n| avg by _sourcehost,service,environment,interface",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel06CFF4D9930ABB4D",
+            "title": "net_bytes_sent",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"bytes\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"unit\":{\"value\":\"B\",\"isCustom\":false}}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{interface}} - {{_sourcehost}}\"}}],\"hiddenQueryKeys\":[]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}}  metric=net_bytes_sent \n| rate increasing\n\n| avg by _sourcehost,service,environment,interface",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel0831F9CEB35C6A4E",
+            "title": "Swap -  Used %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=swap_used_percent\n| avg by _sourcehost,service,environment",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        }
+    ],
+    "variables": [
+        {
+            "id": null,
+            "name": "environment",
+            "displayName": "environment",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "",
+                "key": "environment"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "service",
+            "displayName": "service",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "",
+                "key": "service"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "component",
+            "displayName": "component",
+            "defaultValue": "os-linux",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "_sourcecategory=metrics/telegraf",
+                "key": "component"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "_sourcehost",
+            "displayName": "_sourcehost",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "_sourcecategory=metrics/telegraf",
+                "key": "_sourcehost"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        }
+    ],
+    "coloringRules": []
+}
+

@@ -1,0 +1,479 @@
+
+
+{
+    "type": "DashboardV2SyncDefinition",
+    "name": "2. Linux - Top N",
+    "description": "",
+    "title": "2. Linux - Top N",
+    "rootPanel": null,
+    "theme": "Light",
+    "topologyLabelMap": {
+        "data": {
+            "component": [
+                "os-linux"
+            ],
+            "environment": [
+                "*"
+            ],
+            "service": [
+                "*"
+            ]
+        }
+    },
+    "refreshInterval": 0,
+    "timeRange": {
+        "type": "BeginBoundedTimeRange",
+        "from": {
+            "type": "RelativeTimeRangeBoundary",
+            "relativeTime": "-6h"
+        },
+        "to": null
+    },
+    "layout": {
+        "layoutType": "Grid",
+        "layoutStructures": [
+            {
+                "key": "panel74912C79A7795A42",
+                "structure": "{\"height\":7,\"width\":6,\"x\":0,\"y\":1}"
+            },
+            {
+                "key": "panel8B5FCB7FBE07C94E",
+                "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":15}"
+            },
+            {
+                "key": "panelDFB0B87F9C36894B",
+                "structure": "{\"height\":7,\"width\":6,\"x\":6,\"y\":1}"
+            },
+            {
+                "key": "panel360767729C017B4D",
+                "structure": "{\"height\":7,\"width\":6,\"x\":12,\"y\":1}"
+            },
+            {
+                "key": "panel86B1F6178434B944",
+                "structure": "{\"height\":7,\"width\":6,\"x\":0,\"y\":8}"
+            },
+            {
+                "key": "panelC2DDD26AB0CD594D",
+                "structure": "{\"height\":7,\"width\":6,\"x\":18,\"y\":1}"
+            },
+            {
+                "key": "panelA7192EFEB68ED84E",
+                "structure": "{\"height\":7,\"width\":6,\"x\":6,\"y\":8}"
+            },
+            {
+                "key": "panel147DDB58A679C84B",
+                "structure": "{\"height\":7,\"width\":6,\"x\":12,\"y\":8}"
+            },
+            {
+                "key": "panel7C6263C3AE95884C",
+                "structure": "{\"height\":7,\"width\":6,\"x\":18,\"y\":8}"
+            }
+        ]
+    },
+    "panels": [
+        {
+            "id": null,
+            "key": "panel74912C79A7795A42",
+            "title": "Top 25 CPU %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":0,\"to\":90,\"color\":\"#16943e\"},{\"from\":90,\"to\":95,\"color\":\"#f7995b\"},{\"from\":95,\"to\":100,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[\"A\"],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=cpu_usage_idle\n| bottomk (25,avg) | avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "100 - #A along _sourcehost,service,environment",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-15m"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panel8B5FCB7FBE07C94E",
+            "title": "Matching Hosts Table CPU Count",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"titleFontSize\":9,\"labelFontSize\":9}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":11,\"mode\":\"distribution\",\"decimals\":0},\"legend\":{\"enabled\":false},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"num CPUs\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf metric=system_n_cpus component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} \n| avg by _sourcehost,environment,service,_collector,_source",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelDFB0B87F9C36894B",
+            "title": "Top 25 Mem Used %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":0,\"to\":90,\"color\":\"#16943e\"},{\"from\":90,\"to\":95,\"color\":\"#f7995b\"},{\"from\":95,\"to\":100,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_used_percent\n| topk (25,avg) | avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-15m"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panel360767729C017B4D",
+            "title": "Top 25 Disk Used %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":0,\"to\":90,\"color\":\"#16943e\"},{\"from\":90,\"to\":95,\"color\":\"#f7995b\"},{\"from\":95,\"to\":100,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=disk_used_percent\n| topk (25,avg) | avg by _sourcehost,service,environment,path,device",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-15m"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panel86B1F6178434B944",
+            "title": "Disk - inodes used percent",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":0,\"to\":85,\"color\":\"#28aa55\"},{\"from\":85,\"to\":95,\"color\":\"#f0731f\"},{\"from\":95,\"to\":110,\"color\":\"#df3d3d\"}],\"shape\":\"hexagon\",\"groupBy\":[],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[\"A\",\"B\"],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=disk_inodes_used\n| avg by _sourcehost,service,environment,path,device",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=disk_inodes_total\n| avg by _sourcehost,service,environment,path,device",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "100 * (#A / #B) | topk (25,avg) | avg by _sourcehost,service,environment,path,device",
+                    "queryType": "Metrics",
+                    "queryKey": "C",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelC2DDD26AB0CD594D",
+            "title": "Top 25 5m Load",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":0,\"to\":10,\"color\":\"#16943e\"},{\"from\":10,\"to\":20,\"color\":\"#f7995b\"},{\"from\":20,\"to\":1000,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=system_load5\n| topk (25,avg) | avg by _sourcehost,service,environment",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-15m"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panelA7192EFEB68ED84E",
+            "title": "Top 25 Swap Used %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":0,\"to\":90,\"color\":\"#16943e\"},{\"from\":90,\"to\":95,\"color\":\"#f7995b\"},{\"from\":95,\"to\":100,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=swap_used_percent\n| topk (25,avg) | avg by _sourcehost,service,environment ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-15m"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panel147DDB58A679C84B",
+            "title": "Top 25 Bytes Recv",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943e\"},{\"from\":null,\"to\":null,\"color\":\"#f7995b\"},{\"from\":null,\"to\":null,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}}  metric=net_bytes_recv \n| rate increasing\n| avg by _sourcehost,service,environment,interface\n| topk (25,avg) ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-15m"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        },
+        {
+            "id": null,
+            "key": "panel7C6263C3AE95884C",
+            "title": "Top 25 Bytes Sent",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943e\"},{\"from\":null,\"to\":null,\"color\":\"#f7995b\"},{\"from\":null,\"to\":null,\"color\":\"#c55003\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"hiddenQueryKeys\":[],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}}  metric=net_bytes_sent\n| rate increasing\n| avg by _sourcehost,service,environment,interface\n| topk (25,avg) ",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-15m"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": [
+                {
+                    "id": "tuJnpQZ3EXHtqhOMTXmaR6yjDUKepq9C05FXZGTsMGLwVgHOKc45pKXZqRvO",
+                    "relativePath": "../Telegraf - Linux Host",
+                    "includeTimeRange": false,
+                    "includeVariables": true
+                }
+            ]
+        }
+    ],
+    "variables": [
+        {
+            "id": null,
+            "name": "environment",
+            "displayName": "environment",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "",
+                "key": "environment"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "service",
+            "displayName": "service",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "",
+                "key": "service"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "component",
+            "displayName": "component",
+            "defaultValue": "os-linux",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "_sourcecategory=metrics/telegraf",
+                "key": "component"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "_sourcehost",
+            "displayName": "_sourcehost",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "_sourcecategory=metrics/telegraf",
+                "key": "_sourcehost"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        }
+    ],
+    "coloringRules": []
+}
+

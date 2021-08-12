@@ -1,0 +1,245 @@
+{
+    "data": [
+        {
+            "name": "AWS Observability",
+            "level": {
+                "entityType": "account",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "region",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "namespace",
+                        "nextLevelsWithConditions": [
+                            {
+                                "condition": "AWS/ApplicationElb",
+                                "level": {
+                                    "entityType": "loadbalancer",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/ApiGateway",
+                                "level": {
+                                    "entityType": "apiname",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/DynamoDB",
+                                "level": {
+                                    "entityType": "tablename",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/EC2",
+                                "level": {
+                                    "entityType": "instanceid",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/RDS",
+                                "level": {
+                                    "entityType": "dbidentifier",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/Lambda",
+                                "level": {
+                                    "entityType": "functionname",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/ECS",
+                                "level": {
+                                    "entityType": "clustername",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/ElastiCache",
+                                "level": {
+                                    "entityType": "cacheclusterid",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            },
+                            {
+                                "condition": "AWS/NetworkELB",
+                                "level": {
+                                    "entityType": "networkloadbalancer",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            }
+                        ],
+                        "nextLevel": null
+                    }
+                }
+            },
+            "filter": null,
+            "id": "0000000000000458"
+        },
+        {
+            "name": "Kubernetes Namespace View",
+            "level": {
+                "entityType": "cluster",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "namespace",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "pod",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": {
+                            "entityType": "container",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    }
+                }
+            },
+            "filter": {
+                "key": "_origin",
+                "value": "kubernetes"
+            },
+            "id": "0000000000000521"
+        },
+        {
+            "name": "Kubernetes Node View",
+            "level": {
+                "entityType": "cluster",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "node",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "pod",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": {
+                            "entityType": "container",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    }
+                }
+            },
+            "filter": {
+                "key": "_origin",
+                "value": "kubernetes"
+            },
+            "id": "0000000000000522"
+        },
+        {
+            "name": "Kubernetes Service View",
+            "level": {
+                "entityType": "cluster",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "namespace",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "service",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": {
+                            "entityType": "pod",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": {
+                                "entityType": "container",
+                                "nextLevelsWithConditions": [],
+                                "nextLevel": null
+                            }
+                        }
+                    }
+                }
+            },
+            "filter": {
+                "key": "_origin",
+                "value": "kubernetes"
+            },
+            "id": "0000000000000523"
+        },
+        {
+            "name": "Kubernetes Deployment View",
+            "level": {
+                "entityType": "cluster",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "namespace",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "deployment",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": {
+                            "entityType": "pod",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": {
+                                "entityType": "container",
+                                "nextLevelsWithConditions": [],
+                                "nextLevel": null
+                            }
+                        }
+                    }
+                }
+            },
+            "filter": {
+                "key": "_origin",
+                "value": "kubernetes"
+            },
+            "id": "0000000000000524"
+        },
+        {
+            "name": "telegraf-cluster",
+            "level": {
+                "entityType": "service",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "environment",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "component",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": null
+                    }
+                }
+            },
+            "filter": {
+                "key": "_sourcecategory",
+                "value": "metrics/telegraf"
+            },
+            "id": "00000000000006BE"
+        },
+        {
+            "name": "telegraf-service",
+            "level": {
+                "entityType": "service",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "environment",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "component",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": null
+                    }
+                }
+            },
+            "filter": {
+                "key": "_sourcecategory",
+                "value": "metrics/telegraf"
+            },
+            "id": "00000000000006C3"
+        }
+    ]
+}

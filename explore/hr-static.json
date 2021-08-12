@@ -1,0 +1,28 @@
+{
+    "name": "telegraf-service-2",
+    "level": {
+        "entityType": "service",
+        "nextLevelsWithConditions": [],
+        "nextLevel": {
+            "entityType": "environment",
+            "nextLevelsWithConditions": [],
+            "nextLevel": {
+                "entityType": "component",
+                "nextLevelsWithConditions": [
+                    {
+                        "condition": "os-linux",
+                        "level": {
+                            "entityType": "_sourcehost",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    }],
+                "nextLevel": null
+            }
+        }
+    },
+    "filter": {
+        "key": "_sourcecategory",
+        "value": "metrics/telegraf"
+    }
+}

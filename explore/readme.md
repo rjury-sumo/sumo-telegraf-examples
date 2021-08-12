@@ -1,0 +1,1 @@
+this folder is examples of using the explore hierarchy and a python script to get the current tree or create a new hierarchy object using https://github.com/SumoLogic/sumologic-python-sdk.

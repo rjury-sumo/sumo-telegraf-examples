@@ -12,7 +12,7 @@ with open('hr-existing.json', 'w') as outfile:
     json.dump(views, outfile, indent=4)
 
 # load the new explore view
-with open('./hr-static.json') as json_file:
+with open('./hr-example.json') as json_file:
     data = json.load(json_file)
 
 # create the explore view

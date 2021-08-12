@@ -1,0 +1,1 @@
+this folder is examples of dashboard config showing things like template params and stack linking. A complete vesion of the app dashboards will be included in the complete-app folder to bulk import.

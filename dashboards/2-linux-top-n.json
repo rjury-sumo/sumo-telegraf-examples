@@ -2,9 +2,9 @@
 
 {
     "type": "DashboardV2SyncDefinition",
-    "name": "2. Linux - Top N",
+    "name": "2. Telegraf - os-linuxTop N",
     "description": "",
-    "title": "2. Linux - Top N",
+    "title": "2. Telegraf - os-linuxTop N",
     "rootPanel": null,
     "theme": "Light",
     "topologyLabelMap": {

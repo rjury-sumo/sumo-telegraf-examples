@@ -47,51 +47,51 @@
             },
             {
                 "key": "panelBE2FCC2D81A73B45",
-                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":13}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":31}"
             },
             {
                 "key": "panel92CD5C5BBBD85B47",
-                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":13}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":31}"
             },
             {
                 "key": "panel75D0625DAFD8F941",
-                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":13}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":31}"
             },
             {
                 "key": "panelD900374DB6623B4F",
-                "structure": "{\"height\":6,\"width\":24,\"x\":0,\"y\":32}"
+                "structure": "{\"height\":6,\"width\":24,\"x\":0,\"y\":50}"
             },
             {
                 "key": "panel5C80993FBF032B42",
-                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":19}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":37}"
             },
             {
                 "key": "panelFE203E97B4BCCA4E",
-                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":38}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":56}"
             },
             {
                 "key": "panel2E9B640692133A4F",
-                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":38}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":56}"
             },
             {
                 "key": "panel9479A150BBD0B94A",
-                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":38}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":56}"
             },
             {
                 "key": "panelPANE-671A15519F585A41",
-                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":25}"
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":43}"
             },
             {
                 "key": "panel6EF66C8E949BE84B",
-                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":12}"
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":30}"
             },
             {
                 "key": "panelBFAAB9CEAD61CA48",
-                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":19}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":37}"
             },
             {
                 "key": "panel24D364438AADAA45",
-                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":19}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":37}"
             },
             {
                 "key": "panel438D444586EA5B4C",
@@ -99,63 +99,95 @@
             },
             {
                 "key": "panel86B1F6178434B944",
-                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":26}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":44}"
             },
             {
                 "key": "panel57F0D0A3B6B4784A",
-                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":26}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":44}"
             },
             {
                 "key": "panelCD0764EF90BEFB49",
-                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":26}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":44}"
             },
             {
                 "key": "panelBFC34F05904AEA4C",
-                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":51}"
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":69}"
             },
             {
                 "key": "panel26784B32B0D09942",
-                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":52}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":70}"
             },
             {
                 "key": "panel06CFF4D9930ABB4D",
-                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":52}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":70}"
             },
             {
                 "key": "panelFADF1952AFBC3B49",
-                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":52}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":70}"
             },
             {
                 "key": "panelC478CC8DB39B3A40",
-                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":44}"
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":62}"
             },
             {
                 "key": "panel0831F9CEB35C6A4E",
-                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":45}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":0,\"y\":63}"
             },
             {
                 "key": "panel2FC7C3779F559A40",
-                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":45}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":8,\"y\":63}"
             },
             {
                 "key": "panel9FF4C6C0ABA1094E",
-                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":45}"
+                "structure": "{\"height\":6,\"width\":8,\"x\":16,\"y\":63}"
             },
             {
                 "key": "panelEC3485B48A826848",
-                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":58}"
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":76}"
             },
             {
                 "key": "panel0247FD2FA14E494C",
-                "structure": "{\"height\":5,\"width\":8,\"x\":0,\"y\":59}"
+                "structure": "{\"height\":5,\"width\":8,\"x\":0,\"y\":77}"
             },
             {
                 "key": "panelCE206538AB9A6B40",
-                "structure": "{\"height\":5,\"width\":8,\"x\":8,\"y\":59}"
+                "structure": "{\"height\":5,\"width\":8,\"x\":8,\"y\":77}"
             },
             {
                 "key": "panel70666E51B086BA44",
-                "structure": "{\"height\":5,\"width\":8,\"x\":16,\"y\":59}"
+                "structure": "{\"height\":5,\"width\":8,\"x\":16,\"y\":77}"
+            },
+            {
+                "key": "panelC1BB2508AD5D4B44",
+                "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":12}"
+            },
+            {
+                "key": "panel1DD7C83089215A4B",
+                "structure": "{\"height\":6,\"width\":9,\"x\":0,\"y\":13}"
+            },
+            {
+                "key": "panelBB49819C81063A4B",
+                "structure": "{\"height\":6,\"width\":8,\"x\":9,\"y\":13}"
+            },
+            {
+                "key": "panel1F7895A896007A49",
+                "structure": "{\"height\":6,\"width\":6,\"x\":0,\"y\":19}"
+            },
+            {
+                "key": "panel506039CF9BA9C84F",
+                "structure": "{\"height\":6,\"width\":6,\"x\":6,\"y\":19}"
+            },
+            {
+                "key": "panel8C4F464593CEDB48",
+                "structure": "{\"height\":6,\"width\":7,\"x\":17,\"y\":13}"
+            },
+            {
+                "key": "panelFFD72942A50B0841",
+                "structure": "{\"height\":6,\"width\":6,\"x\":12,\"y\":19}"
+            },
+            {
+                "key": "panel683CA9FE9DC65941",
+                "structure": "{\"height\":6,\"width\":6,\"x\":18,\"y\":19}"
             }
         ]
     },
@@ -164,7 +196,7 @@
             "id": null,
             "key": "panel00C9F28BBB06684B",
             "title": "CPU % Per Host",
-            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"cpu\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}},{\"series\":[],\"queries\":[\"B\"],\"properties\":{\"name\":\"{{_sourcehost}} \"}}],\"hiddenQueryKeys\":[\"A\"]}",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"cpu\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"maximum\":100}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}},{\"series\":[],\"queries\":[\"B\"],\"properties\":{\"name\":\"{{_sourcehost}} \"}}],\"hiddenQueryKeys\":[\"A\"]}",
             "keepVisualSettingsConsistentWithParent": true,
             "panelType": "SumoSearchPanel",
             "queries": [
@@ -625,7 +657,7 @@
             "id": null,
             "key": "panel86B1F6178434B944",
             "title": "Disk - Inodes Used %",
-            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"inodes\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"A\",\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"C\"],\"properties\":{\"name\":\"{{device}} - {{path}} \"}}]}",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"inodes\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"maximum\":100}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"A\",\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"C\"],\"properties\":{\"name\":\"{{device}} - {{path}} \"}}]}",
             "keepVisualSettingsConsistentWithParent": true,
             "panelType": "SumoSearchPanel",
             "queries": [
@@ -669,7 +701,7 @@
             "id": null,
             "key": "panel57F0D0A3B6B4784A",
             "title": "Disk - Used %",
-            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{path}} - {{device}}\"}}]}",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"maximum\":100}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{path}} - {{device}}\"}}]}",
             "keepVisualSettingsConsistentWithParent": true,
             "panelType": "SumoSearchPanel",
             "queries": [
@@ -837,7 +869,7 @@
             "id": null,
             "key": "panel0831F9CEB35C6A4E",
             "title": "Swap - Used %",
-            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"maximum\":100}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
             "keepVisualSettingsConsistentWithParent": true,
             "panelType": "SumoSearchPanel",
             "queries": [
@@ -997,6 +1029,183 @@
                 },
                 "to": null
             },
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelC1BB2508AD5D4B44",
+            "title": "Mem",
+            "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\"},\"series\":{},\"legend\":{\"enabled\":false}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "TextPanel",
+            "text": ""
+        },
+        {
+            "id": null,
+            "key": "panel1DD7C83089215A4B",
+            "title": "Mem - Used %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"maximum\":100}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_used_percent\n| avg by _sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelBB49819C81063A4B",
+            "title": "Mem - Available %",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used %\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"maximum\":100}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_available_percent\n| avg by _sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel1F7895A896007A49",
+            "title": "Mem - Used",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"used\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"unit\":{\"value\":\"B\",\"isCustom\":false}}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_used\n| avg by _sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel506039CF9BA9C84F",
+            "title": "Mem - Available",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"available\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"unit\":{\"value\":\"B\",\"isCustom\":false}}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_available\n| avg by _sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel8C4F464593CEDB48",
+            "title": "Mem - Free",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"free\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"unit\":{\"value\":\"B\",\"isCustom\":false}}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_free \n| avg by _sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelFFD72942A50B0841",
+            "title": "Mem - Cached",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"cached\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"unit\":{\"value\":\"B\",\"isCustom\":false}}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_cached\n| avg by _sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panel683CA9FE9DC65941",
+            "title": "Mem - Buffered",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"buffered\",\"titleFontSize\":9,\"labelFontSize\":9,\"logarithmic\":false,\"unit\":{\"value\":\"B\",\"isCustom\":false}}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"hiddenQueryKeys\":[\"B\"],\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{_sourcehost}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component={{component}} environment={{environment}} service={{service}}  _sourcehost={{_sourcehost}} metric=mem_buffered\n| avg by _sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
             "coloringRules": null,
             "linkedDashboards": []
         }

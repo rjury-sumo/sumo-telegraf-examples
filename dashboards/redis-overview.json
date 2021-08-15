@@ -1,0 +1,528 @@
+
+
+{
+    "type": "DashboardV2SyncDefinition",
+    "name": "Redis Overview",
+    "description": "The Redis - Overview dashboard provides an at-a-glance view of the Redis server status, error logs along with database metrics.",
+    "title": "Redis Overview",
+    "rootPanel": null,
+    "theme": "Dark",
+    "topologyLabelMap": {
+        "data": {
+            "component": [
+                "database"
+            ],
+            "db_system": [
+                "redis"
+            ]
+        }
+    },
+    "refreshInterval": 0,
+    "timeRange": {
+        "type": "BeginBoundedTimeRange",
+        "from": {
+            "type": "RelativeTimeRangeBoundary",
+            "relativeTime": "-1d"
+        },
+        "to": null
+    },
+    "layout": {
+        "layoutType": "Grid",
+        "layoutStructures": [
+            {
+                "key": "panelPANE-B31FC2699EDE0A40",
+                "structure": "{\"height\":6,\"width\":12,\"x\":0,\"y\":9}"
+            },
+            {
+                "key": "panelPANE-C9CEACFE823C5840",
+                "structure": "{\"height\":6,\"width\":12,\"x\":12,\"y\":9}"
+            },
+            {
+                "key": "panelPANE-C6F3CBE1B4E3C841",
+                "structure": "{\"height\":7,\"width\":12,\"x\":12,\"y\":15}"
+            },
+            {
+                "key": "panelPANE-35B351CF81CBC947",
+                "structure": "{\"height\":5,\"width\":4,\"x\":9,\"y\":4}"
+            },
+            {
+                "key": "panelPANE-E9E14C83869ED946",
+                "structure": "{\"height\":5,\"width\":4,\"x\":5,\"y\":4}"
+            },
+            {
+                "key": "panelPANE-0A627B6FB3980B40",
+                "structure": "{\"height\":5,\"width\":3,\"x\":13,\"y\":4}"
+            },
+            {
+                "key": "panelPANE-76EB61958A99B840",
+                "structure": "{\"height\":5,\"width\":5,\"x\":0,\"y\":4}"
+            },
+            {
+                "key": "panelPANE-A735C3FBA11B6A4B",
+                "structure": "{\"height\":4,\"width\":6,\"x\":6,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-00416E0A91CDBB48",
+                "structure": "{\"height\":4,\"width\":3,\"x\":21,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-C4AA3663888DDA42",
+                "structure": "{\"height\":4,\"width\":3,\"x\":18,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-A4963F0EB01CE84F",
+                "structure": "{\"height\":4,\"width\":3,\"x\":15,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-D02A1013A756B840",
+                "structure": "{\"height\":5,\"width\":8,\"x\":16,\"y\":4}"
+            },
+            {
+                "key": "panelPANE-BA9C0F3CAF0A5844",
+                "structure": "{\"height\":7,\"width\":12,\"x\":0,\"y\":15}"
+            },
+            {
+                "key": "panelPANE-BAEFEA38A5EB8A42",
+                "structure": "{\"height\":4,\"width\":3,\"x\":12,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-219CCBDD962BC94D",
+                "structure": "{\"height\":4,\"width\":6,\"x\":0,\"y\":0}"
+            }
+        ]
+    },
+    "panels": [
+        {
+            "id": null,
+            "key": "panelPANE-B31FC2699EDE0A40",
+            "title": "Commands Per Second",
+            "visualSettings": "{\"general\":{\"mode\":\"timeSeries\",\"type\":\"line\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"markerSize\":0,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":2},\"title\":{\"fontSize\":16},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":11,\"labelFontSize\":10},\"axisY\":{\"titleFontSize\":11,\"labelFontSize\":12,\"logarithmic\":false,\"gridColor\":\"#dde4e9\",\"title\":\" \"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"scheme4\"},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"userProvidedChartType\":false,\"properties\":{\"type\":\"line\",\"name\":\"Commands\"}}],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_total_commands_processed | quantize 2m | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-C9CEACFE823C5840",
+            "title": "Cache Hit Rate by Host",
+            "visualSettings": "{\"general\":{\"mode\":\"timeSeries\",\"type\":\"line\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"markerSize\":0,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":2},\"title\":{\"fontSize\":16},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":11,\"labelFontSize\":10},\"axisY\":{\"titleFontSize\":11,\"labelFontSize\":12,\"logarithmic\":false,\"gridColor\":\"#dde4e9\",\"title\":\" \"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"scheme6\"},\"hiddenQueryKeys\":[\"B\"],\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"host = {{host}}\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_keyspace_hitrate | avg by host",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-C6F3CBE1B4E3C841",
+            "title": "Fragmentation Ratio",
+            "visualSettings": "{\"general\":{\"mode\":\"timeSeries\",\"type\":\"line\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"markerSize\":0,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":2},\"title\":{\"fontSize\":16},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":11,\"labelFontSize\":10},\"axisY\":{\"titleFontSize\":11,\"labelFontSize\":12,\"logarithmic\":false,\"gridColor\":\"#dde4e9\",\"title\":\" \"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"scheme3\"},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"userProvidedChartType\":false,\"properties\":{\"type\":\"line\",\"name\":\"Fragmentation Ratio\"}}],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_mem_fragmentation_ratio | avg",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-35B351CF81CBC947",
+            "title": "Connected Clients",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Latest\",\"label\":\" \",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_clients | sum | timeshift -1m",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-E9E14C83869ED946",
+            "title": "Redis Tracking Keys",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Latest\",\"label\":\" \",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"\",\"hideData\":false,\"rounding\":0,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_tracking_total_keys | sum | timeshift -1m",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-0A627B6FB3980B40",
+            "title": "Blocked Clients",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Average\",\"label\":\" \",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_blocked_clients | sum | timeshift -1m",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-76EB61958A99B840",
+            "title": "RDB Changes Since Last Save",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Latest\",\"label\":\" \",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_rdb_changes_since_last_save | max",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-A735C3FBA11B6A4B",
+            "title": "Keyspace Hit %",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Latest\",\"label\":\" \",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":true,\"min\":0,\"max\":100}},\"hiddenQueryKeys\":[],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_keyspace_hits| filter avg > 0 | avg",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_keyspace_misses| filter avg > 0 | avg",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "(#A/(#A + #B)) *100",
+                    "queryType": "Metrics",
+                    "queryKey": "C",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-00416E0A91CDBB48",
+            "title": "Uptime ",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Average\",\"label\":\"Hour(s)\",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_uptime | max | eval _value/3600",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-C4AA3663888DDA42",
+            "title": "Masters",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Latest\",\"label\":\" \",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"0\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_uptime (replication_role=master or role=master)  | count  | timeshift -2m",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-A4963F0EB01CE84F",
+            "title": "Slaves",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Latest\",\"label\":\" \",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":null,\"to\":null,\"color\":\"#16943E\"},{\"from\":null,\"to\":null,\"color\":\"#DFBE2E\"},{\"from\":null,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_uptime (replication_role=slave or role=slave) | count  | timeshift -2m",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-D02A1013A756B840",
+            "title": "Evicted vs Expired Keys",
+            "visualSettings": "{\"title\":{\"fontSize\":16},\"general\":{\"type\":\"column\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"fillOpacity\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":11,\"labelFontSize\":10},\"axisY\":{\"titleFontSize\":11,\"labelFontSize\":12,\"logarithmic\":false,\"gridColor\":\"#dde4e9\",\"title\":\" \"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"scheme7\"},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"userProvidedChartType\":false,\"properties\":{\"type\":\"column\",\"name\":\"Expired\"}},{\"series\":[],\"queries\":[\"B\"],\"userProvidedChartType\":false,\"properties\":{\"type\":\"column\",\"name\":\"Evicted\"}}],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_expired_keys | quantize 2m | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_evicted_keys | quantize 2m | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-BA9C0F3CAF0A5844",
+            "title": "Rejected vs Connected Clients",
+            "visualSettings": "{\"title\":{\"fontSize\":16},\"general\":{\"type\":\"column\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#F032A9\",\"outlierBandFillOpacity\":0.5,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"outlierBandLineDashType\":\"solid\",\"outlierBandDisplayType\":\"default\",\"fillOpacity\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":11,\"labelFontSize\":10},\"axisY\":{\"title\":\"\",\"titleFontSize\":11,\"labelFontSize\":12,\"logarithmic\":false,\"gridColor\":\"#dde4e9\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"scheme9\"},\"overrides\":[{\"series\":[],\"queries\":[\"B\"],\"userProvidedChartType\":false,\"properties\":{\"name\":\"Connected Clients\"}},{\"series\":[],\"queries\":[\"A\"],\"userProvidedChartType\":false,\"properties\":{\"name\":\"Rejected Connections\"}}],\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_rejected_connections| quantize 2m | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_clients | quantize 2m | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-BAEFEA38A5EB8A42",
+            "title": "Cluster Enabled",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#F032A9\",\"outlierBandFillOpacity\":0.5,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"outlierBandLineDashType\":\"solid\",\"outlierBandDisplayType\":\"default\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Latest\",\"label\":\"Label\",\"useBackgroundColor\":true,\"useNoData\":false,\"noDataString\":\"No data\",\"hideData\":true,\"rounding\":2,\"valueFontSize\":24,\"labelFontSize\":14,\"thresholds\":[{\"from\":0,\"to\":0.99,\"color\":\"#ffb5b5\"},{\"from\":null,\"to\":null,\"color\":\"#F2DA73\"},{\"from\":0.99,\"to\":null,\"color\":\"#98eca9\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_cluster_enabled | min",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-219CCBDD962BC94D",
+            "title": "Instantaneous OPS per Second",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#F032A9\",\"outlierBandFillOpacity\":0.5,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"outlierBandLineDashType\":\"solid\",\"outlierBandDisplayType\":\"default\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Average\",\"label\":\"\",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"No data\",\"hideData\":false,\"rounding\":2,\"valueFontSize\":24,\"labelFontSize\":14,\"thresholds\":[{\"from\":0,\"to\":99.99,\"color\":\"#16943E\"},{\"from\":100,\"to\":199.99,\"color\":\"#DFBE2E\"},{\"from\":200,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false},\"gauge\":{\"show\":true,\"min\":0,\"max\":500}},\"series\":{}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": " db_cluster={{db_cluster}} _sourcehost={{_sourcehost}}  component=database db_system=redis  metric=redis_instantaneous_ops_per_sec | pct(50)",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        }
+    ],
+    "variables": [
+        {
+            "id": null,
+            "name": "db_cluster",
+            "displayName": "db_cluster",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "metric=redis* db_system=redis component=database _sourceCategory = *redis*",
+                "key": "db_cluster"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "_sourcehost",
+            "displayName": "_sourcehost",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "_sourcecategory=metrics/telegraf metric=redis*",
+                "key": "_sourcehost"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        }
+    ],
+    "coloringRules": []
+}
+

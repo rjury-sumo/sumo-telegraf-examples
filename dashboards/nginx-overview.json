@@ -1,0 +1,380 @@
+
+
+{
+    "type": "DashboardV2SyncDefinition",
+    "name": "Nginx ULM - Overview",
+    "description": "The Nginx ULM - Overview dashboard provides at a glance view of the NGINX server access, error logs along with Connections metrics.",
+    "title": "Nginx ULM - Overview",
+    "rootPanel": null,
+    "theme": "Light",
+    "topologyLabelMap": {
+        "data": {
+            "component": [
+                "nginx"
+            ],
+            "_sourcehost": [
+                "*"
+            ]
+        }
+    },
+    "refreshInterval": 0,
+    "timeRange": {
+        "type": "BeginBoundedTimeRange",
+        "from": {
+            "type": "RelativeTimeRangeBoundary",
+            "relativeTime": "-1h"
+        },
+        "to": null
+    },
+    "layout": {
+        "layoutType": "Grid",
+        "layoutStructures": [
+            {
+                "key": "panelPANE-201687E4A622584F",
+                "structure": "{\"height\":6,\"width\":5,\"x\":8,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-DA6431D98E48AB49",
+                "structure": "{\"height\":6,\"width\":12,\"x\":0,\"y\":12}"
+            },
+            {
+                "key": "panelPANE-3BA20C718408EA4F",
+                "structure": "{\"height\":6,\"width\":12,\"x\":12,\"y\":12}"
+            },
+            {
+                "key": "panelPANE-3E808DA89240B945",
+                "structure": "{\"height\":6,\"width\":11,\"x\":13,\"y\":6}"
+            },
+            {
+                "key": "panelPANE-09669D7396E3AA42",
+                "structure": "{\"height\":12,\"width\":8,\"x\":0,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-B231FC8ABD087A47",
+                "structure": "{\"height\":6,\"width\":11,\"x\":13,\"y\":0}"
+            },
+            {
+                "key": "panelPANE-01D0BD9088FCFB41",
+                "structure": "{\"height\":6,\"width\":5,\"x\":8,\"y\":6}"
+            }
+        ]
+    },
+    "panels": [
+        {
+            "id": null,
+            "key": "panelPANE-201687E4A622584F",
+            "title": "Critical Error Messages",
+            "visualSettings": "{\"general\":{\"mode\":\"singleValueMetrics\",\"type\":\"svp\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"svp\":{\"option\":\"Average\",\"label\":\"Error Messages\",\"useBackgroundColor\":false,\"useNoData\":false,\"noDataString\":\"0\",\"hideData\":false,\"rounding\":2,\"thresholds\":[{\"from\":0,\"to\":1,\"color\":\"#16943E\"},{\"from\":1,\"to\":10,\"color\":\"#DFBE2E\"},{\"from\":8,\"to\":null,\"color\":\"#BF2121\"}],\"sparkline\":{\"show\":false,\"color\":\"#222D3B\"},\"gauge\":{\"show\":false,\"min\":0,\"max\":100,\"showThreshold\":false,\"showThresholdMarker\":false},\"labelFontSize\":8}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"\\s\\[(?<Log_Level>\\S+)\\]\\s\\d+#\\d+:\\s(?:\\*\\d+\\s|)(?<Message>[A-Za-z][^,]+)(?:,|$)\"\n| parse field=nginx_log_message \"client: *, server: *, request: \\\"* * HTTP/1.1\\\", host: \\\"*\\\"\" as Client_Ip, Server, Method, URL, Host nodrop\n| where Client_Ip matches \"{{Client_Ip}}\" and Server matches \"{{Server}}\" and Method matches \"{{Method}}\" and URL matches \"{{URL}}\"\n| where log_level in (\"emerg\", \"alert\", \"crit\")\n| count",
+                    "queryType": "Logs",
+                    "queryKey": "A",
+                    "metricsQueryMode": null,
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-DA6431D98E48AB49",
+            "title": "Active vs Dropped Connections",
+            "visualSettings": "{\"hiddenQueryKeys\":[\"A\",\"B\",\"C\"]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "metric=nginx* metric = nginx_active Server = {{Nginx_Server_Name}}  _sourcehost={{_sourcehost}} | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "metric=nginx* metric = nginx_handled Server = {{Nginx_Server_Name}}  _sourcehost={{_sourcehost}} | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "metric=nginx* metric = nginx_accepts Server = {{Nginx_Server_Name}}  _sourcehost={{_sourcehost}} | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "C",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "#C - #B as Dropped_Connections",
+                    "queryType": "Metrics",
+                    "queryKey": "D",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "#A as Active_Connections",
+                    "queryType": "Metrics",
+                    "queryKey": "E",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-3BA20C718408EA4F",
+            "title": "Total Requests per Second",
+            "visualSettings": "{\"title\":{\"fontSize\":16},\"general\":{\"type\":\"area\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"markerSize\":0,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":2,\"fillOpacity\":0.25,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":11,\"labelFontSize\":10},\"axisY\":{\"titleFontSize\":11,\"labelFontSize\":12,\"logarithmic\":false,\"gridColor\":\"#dde4e9\",\"title\":\"Requests\"}},\"legend\":{\"enabled\":false,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"scheme2\"},\"hiddenQueryKeys\":[\"A\",\"B\"]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "metric=nginx* Metric = nginx_requests Server = {{Nginx_Server_Name}}  _sourcehost={{_sourcehost}} | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "metric=nginx* Metric = nginx_handled Server = {{Nginx_Server_Name}}  _sourcehost={{_sourcehost}} | sum",
+                    "queryType": "Metrics",
+                    "queryKey": "B",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                },
+                {
+                    "queryString": "#A / #B as Requests_Per_Second",
+                    "queryType": "Metrics",
+                    "queryKey": "C",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-3E808DA89240B945",
+            "title": "Top 5 Critical Messages",
+            "visualSettings": "{\"title\":{\"fontSize\":16},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\"}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"\\s\\[(?<Log_Level>\\S+)\\]\\s\\d+#\\d+:\\s(?:\\*\\d+\\s|)(?<Message>[A-Za-z][^,]+)(?:,|$)\"\n| parse field=nginx_log_message \"client: *, server: *, request: \\\"* * HTTP/1.1\\\", host: \\\"*\\\"\" as Client_Ip, Server, Method, URL, Host nodrop\n| where Client_Ip matches \"{{Client_Ip}}\" and Server matches \"{{Server}}\" and Method matches \"{{Method}}\" and URL matches \"{{URL}}\"\n| where log_level in (\"emerg\", \"alert\", \"crit\")\n| count as Count by Message, Server\n| sort by Count\n| limit 5",
+                    "queryType": "Logs",
+                    "queryKey": "A",
+                    "metricsQueryMode": null,
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-09669D7396E3AA42",
+            "title": "Visitor Locations",
+            "visualSettings": "{\"general\":{\"mode\":\"map\",\"type\":\"map\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"map\":{\"layerType\":\"Cluster\"}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"(?<Client_Ip>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| parse regex field=nginx_log_message \"(?<Method>[A-Z]+)\\s(?<URL>\\S+)\\sHTTP/[\\d\\.]+\\\"\\s(?<Status_Code>\\d+)\\s(?<Size>[\\d-]+)\\s\\\"(?<Referrer>.*?)\\\"\\s\\\"(?<User_Agent>.+?)\\\".*\"\n| where _sourceHost matches \"{{Server}}\" and Client_Ip matches \"{{Client_Ip}}\" and Method matches \"{{Method}}\" and URL matches \"{{URL}}\" and Status_Code matches \"{{Status_Code}}\"\n| count by Client_Ip\n| lookup latitude, longitude, country_code, country_name, region, city, postal_code from geo://location on ip = Client_Ip\n| count by latitude, longitude, country_code, country_name, region, city, postal_code\n| sort _count",
+                    "queryType": "Logs",
+                    "queryKey": "A",
+                    "metricsQueryMode": null,
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-B231FC8ABD087A47",
+            "title": "Responses Over Time",
+            "visualSettings": "{\"title\":{\"fontSize\":16},\"general\":{\"type\":\"column\",\"displayType\":\"stacked\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#ED3CPE\",\"outlierBandFillOpacity\":0.15,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\",\"fillOpacity\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"titleFontSize\":11,\"labelFontSize\":10,\"title\":\"Time\"},\"axisY\":{\"titleFontSize\":11,\"labelFontSize\":12,\"logarithmic\":false,\"gridColor\":\"#dde4e9\",\"title\":\"Requests Count\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"scheme2\"}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"(?<Client_Ip>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| parse regex field=nginx_log_message \"(?<Method>[A-Z]+)\\s(?<URL>\\S+)\\sHTTP/[\\d\\.]+\\\"\\s(?<Status_Code>\\d+)\\s(?<Size>[\\d-]+)\\s\\\"(?<Referrer>.*?)\\\"\\s\\\"(?<User_Agent>.+?)\\\".*\"\n| where _sourceHost matches \"{{Server}}\" and Client_Ip matches \"{{Client_Ip}}\" and Method matches \"{{Method}}\" and URL matches \"{{URL}}\" and Status_Code matches \"{{Status_Code}}\"\n| if(Status_Code matches \"2*\", 1, 0) as Successes \n| if(Status_Code matches \"3*\", 1, 0) as Redirects \n| if(status_code matches \"4*\", 1, 0) as Client_Errors \n| if(Status_Code matches \"5*\", 1, 0) as Server_Errors \n| timeslice by 5m\n| sum(Successes) as Successes, sum(Client_Errors) as Client_Errors,  sum(Redirects) as Redirects, sum(Server_Errors) as Server_Errors by _timeslice\n| sort by _timeslice asc",
+                    "queryType": "Logs",
+                    "queryKey": "A",
+                    "metricsQueryMode": null,
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelPANE-01D0BD9088FCFB41",
+            "title": "5xx Codes by Server",
+            "visualSettings": "{\"general\":{\"mode\":\"honeyComb\",\"type\":\"honeyComb\",\"displayType\":\"default\",\"outlierBandColor\":\"#FDECF5\",\"outlierBandMarkerColor\":\"#F032A9\",\"outlierBandFillOpacity\":0.3,\"outlierBandLineThickness\":2,\"outlierBandMarkerSize\":10,\"outlierBandMarkerType\":\"triangle\"},\"title\":{\"fontSize\":16},\"honeyComb\":{\"thresholds\":[{\"from\":\"1\",\"to\":\"5\",\"color\":\"#008000\"},{\"from\":\"5\",\"to\":\"20\",\"color\":\"#e7c119\"},{\"from\":\"20\",\"to\":null,\"color\":\"#ff0000\"}],\"shape\":\"hexagon\",\"groupBy\":[],\"aggregationType\":\"avg\"}}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"(?<Client_Ip>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| parse regex field=nginx_log_message \"(?<Method>[A-Z]+)\\s(?<URL>\\S+)\\sHTTP/[\\d\\.]+\\\"\\s(?<Status_Code>\\d+)\\s(?<Size>[\\d-]+)\\s\\\"(?<Referrer>.*?)\\\"\\s\\\"(?<User_Agent>.+?)\\\".*\"\n| where _sourceHost matches \"{{Server}}\" and Client_Ip matches \"{{Client_Ip}}\" and Method matches \"{{Method}}\" and URL matches \"{{URL}}\" and Status_Code matches \"{{Status_Code}}\" \n| where status_code matches \"5*\"\n| count as count by status_code, _sourceHost",
+                    "queryType": "Logs",
+                    "queryKey": "A",
+                    "metricsQueryMode": null,
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Manual",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        }
+    ],
+    "variables": [
+        {
+            "id": null,
+            "name": "_sourcehost",
+            "displayName": "_sourcehost",
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "_sourcecategory=metrics/telegraf metric=nginx*",
+                "key": "_sourcehost"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "Client_Ip",
+            "displayName": null,
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "LogQueryVariableSourceDefinition",
+                "query": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"(?<Client_Ip>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| parse regex field=nginx_log_message \"(?<Method>[A-Z]+)\\s(?<URL>\\S+)\\sHTTP/[\\d\\.]+\\\"\\s(?<Status_Code>\\d+)\\s(?<Size>[\\d-]+)\\s\\\"(?<Referrer>.*?)\\\"\\s\\\"(?<User_Agent>.+?)\\\".*\"\n| count by _sourceHost, Client_Ip, Method, URL, Status_Code, Referrer, User_Agent",
+                "field": "Client_Ip"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "Method",
+            "displayName": null,
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "LogQueryVariableSourceDefinition",
+                "query": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"(?<Client_Ip>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| parse regex field=nginx_log_message \"(?<Method>[A-Z]+)\\s(?<URL>\\S+)\\sHTTP/[\\d\\.]+\\\"\\s(?<Status_Code>\\d+)\\s(?<Size>[\\d-]+)\\s\\\"(?<Referrer>.*?)\\\"\\s\\\"(?<User_Agent>.+?)\\\".*\"\n| count by _sourceHost, Client_Ip, Method, URL, Status_Code, Referrer, User_Agent",
+                "field": "method"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "URL",
+            "displayName": null,
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "LogQueryVariableSourceDefinition",
+                "query": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"(?<Client_Ip>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| parse regex field=nginx_log_message \"(?<Method>[A-Z]+)\\s(?<URL>\\S+)\\sHTTP/[\\d\\.]+\\\"\\s(?<Status_Code>\\d+)\\s(?<Size>[\\d-]+)\\s\\\"(?<Referrer>.*?)\\\"\\s\\\"(?<User_Agent>.+?)\\\".*\"\n| count by _sourceHost, Client_Ip, Method, URL, Status_Code, Referrer, User_Agent",
+                "field": "url"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "Status_Code",
+            "displayName": null,
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "LogQueryVariableSourceDefinition",
+                "query": "_sourceCategory = *nginx* _sourcehost={{_sourcehost}}  \n| json auto maxdepth 1 nodrop\n| if (isEmpty(log), _raw, log) as nginx_log_message\n| parse regex field=nginx_log_message \"(?<Client_Ip>\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3})\"\n| parse regex field=nginx_log_message \"(?<Method>[A-Z]+)\\s(?<URL>\\S+)\\sHTTP/[\\d\\.]+\\\"\\s(?<Status_Code>\\d+)\\s(?<Size>[\\d-]+)\\s\\\"(?<Referrer>.*?)\\\"\\s\\\"(?<User_Agent>.+?)\\\".*\"\n| count by _sourceHost, Client_Ip, Method, URL, Status_Code, Referrer, User_Agent",
+                "field": "status_code"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        },
+        {
+            "id": null,
+            "name": "Nginx_Server_Name",
+            "displayName": null,
+            "defaultValue": "*",
+            "sourceDefinition": {
+                "variableSourceType": "MetadataVariableSourceDefinition",
+                "filter": "metric=nginx*",
+                "key": "server"
+            },
+            "allowMultiSelect": false,
+            "includeAllOption": true,
+            "hideFromUI": false
+        }
+    ],
+    "coloringRules": []
+}
+

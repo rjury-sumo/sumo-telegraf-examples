@@ -200,46 +200,51 @@
             "id": "0000000000000524"
         },
         {
-            "name": "telegraf-cluster",
+            "name": "telegraf-components",
             "level": {
-                "entityType": "service",
-                "nextLevelsWithConditions": [],
-                "nextLevel": {
-                    "entityType": "environment",
-                    "nextLevelsWithConditions": [],
-                    "nextLevel": {
-                        "entityType": "component",
-                        "nextLevelsWithConditions": [],
-                        "nextLevel": null
+                "entityType": "component",
+                "nextLevelsWithConditions": [
+                    {
+                        "condition": "os-linux",
+                        "level": {
+                            "entityType": "_sourcehost",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    },
+                    {
+                        "condition": "nginx",
+                        "level": {
+                            "entityType": "_sourcehost",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    },
+                    {
+                        "condition": "database",
+                        "level": {
+                            "entityType": "db_system",
+                            "nextLevelsWithConditions": [
+                                {
+                                    "condition": "redis",
+                                    "level": {
+                                        "entityType": "_sourcehost",
+                                        "nextLevelsWithConditions": [],
+                                        "nextLevel": null
+                                    }
+                                }
+                            ],
+                            "nextLevel": null
+                        }
                     }
-                }
+                ],
+                "nextLevel": null
             },
             "filter": {
                 "key": "_sourcecategory",
                 "value": "metrics/telegraf"
             },
-            "id": "00000000000006BE"
-        },
-        {
-            "name": "telegraf-service",
-            "level": {
-                "entityType": "service",
-                "nextLevelsWithConditions": [],
-                "nextLevel": {
-                    "entityType": "environment",
-                    "nextLevelsWithConditions": [],
-                    "nextLevel": {
-                        "entityType": "component",
-                        "nextLevelsWithConditions": [],
-                        "nextLevel": null
-                    }
-                }
-            },
-            "filter": {
-                "key": "_sourcecategory",
-                "value": "metrics/telegraf"
-            },
-            "id": "00000000000006C3"
+            "id": "00000000000006FB"
         }
     ]
 }

@@ -1,5 +1,5 @@
 {
-    "name": "telegraf-service-2",
+    "name": "telegraf-service",
     "level": {
         "entityType": "service",
         "nextLevelsWithConditions": [],

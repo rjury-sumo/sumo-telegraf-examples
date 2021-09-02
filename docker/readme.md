@@ -40,7 +40,6 @@ component=ping
 
 # env vars
 - urls - hosts to send ping packets to
-- PING_FIELDPASS=${PING_FIELDPASS:'percent_packet_loss,average_response_ms,result_code'}
 
 
 

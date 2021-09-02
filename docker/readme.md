@@ -12,7 +12,7 @@ make sure when you execute the container you have a valid conf file.
 you can use one of the templates in ./conf as these are copied to image or supply your own.
 
 ```
-docker run -it -e SUMO_URL="https://abdcefg"  -e env=test sumo_telegraf_agent telegraf --config ping.conf
+docker run -it -e SUMO_URL="$SUMO_URL"  -e env=test sumo_telegraf_agent telegraf --config ping.conf
 ```
 
 ## global tags
@@ -40,6 +40,7 @@ component=ping
 
 # env vars
 - urls - hosts to send ping packets to
+- PING_FIELDPASS=${PING_FIELDPASS:'percent_packet_loss,average_response_ms,result_code'}
 
 
 

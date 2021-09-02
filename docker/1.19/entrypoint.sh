@@ -22,6 +22,6 @@ export ip=`hostname -i`
 
 # ping defaults
 export urls=${urls:='sumologic.com'}
-export ping_fieldpass=${PING_FIELDPASS:'percent_packet_loss,average_response_ms,result_code'}
+export PING_FIELDPASS=${PING_FIELDPASS:='percent_packet_loss,average_response_ms,result_code'}
 
 exec "$@"

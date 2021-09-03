@@ -13,7 +13,9 @@ you can use one of the templates in ./conf as these are copied to image or suppl
 
 ```
 docker run -it -e SUMO_URL="$SUMO_URL"  -e env=test sumo_telegraf_agent telegraf --config ping.conf
+docker run -it -e SUMO_URL="$SUMO_URL"  -e env=test -e urls='invalid.host' sumo_telegraf_agent telegraf  --config ping.conf
 ```
+
 
 ## global tags
 Posts to sumo with:
@@ -40,6 +42,15 @@ component=ping
 
 # env vars
 - urls - hosts to send ping packets to
+
+# example explore node
+see: explore/hr-example.json
+
+# example dashboard with stack link 
+see: dashboards/ping-overview.json
+
+![docs/ping-explore.png](docs/ping-explore.png "component hierarchy")
+
 
 
 

@@ -33,7 +33,15 @@
                     }],
                     "nextLevel": null
                 }
-            }       
+            },
+            {
+                "condition": "ping",
+                "level": {
+                    "entityType": "url",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": null
+                }
+            }     
         ],
         "nextLevel": null
     },

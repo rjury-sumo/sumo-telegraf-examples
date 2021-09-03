@@ -49,7 +49,7 @@ see: explore/hr-example.json
 # example dashboard with stack link 
 see: dashboards/ping-overview.json
 
-![docs/ping-explore.png](../../docs/ping-explore.png "component hierarchy")
+![../docs/ping-explore.png](../docs/ping-explore.png "component hierarchy")
 
 
 

@@ -215,7 +215,7 @@ Once you have decided on a heirarchy and made sure the metrics collected have ma
 ####  6.1. <a name='Customhierarchybycomponenttag'></a>Custom hierarchy by component tag
 We can build a hierarchy 1 level deep to show content for each telgraf plugin that is integrated.
 
-If you refer to [hr-os-nginx-redis.json](explore/hr-os-nginx-redis.json) you will see we can show each new component as a level, then have a dynamic list of all nodes in the that level with something like this:
+If you refer to [telegraf-components](explore/telegraf-components) you will see we can show each new component as a level, then have a dynamic list of all nodes in the that level with something like this:
 ```
 {
     "name": "telegraf-components",

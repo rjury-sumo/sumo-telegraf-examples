@@ -44,7 +44,7 @@ component=ping
 - urls - hosts to send ping packets to
 
 # example explore node
-see: explore/hr-example.json
+see: explore/hr-example.json or explore/telegraf-components.json
 
 # example dashboard with stack link 
 see: dashboards/ping-overview.json

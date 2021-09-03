@@ -12,7 +12,7 @@ sumo = SumoLogic(os.environ.get('SUMO_ACCESS_ID'),os.environ.get('SUMO_ACCESS_KE
 #    json.dump(views, outfile, indent=4)
 
 # load the new explore view
-with open('./hr-os-nginx-redis.json') as json_file:
+with open('./telegraf-components.json') as json_file:
     data = json.load(json_file)
 
 # create the explore view

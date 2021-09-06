@@ -49,7 +49,7 @@ Containerised synthetic ping check as per: https://github.com/influxdata/telegra
 see: explore/hr-example.json or explore/telegraf-components.json
 
 ### example dashboard with stack link 
-see: dashboards/ping-overview.json
+see: complete-apps/ping
 
 ![../docs/ping-explore.png](../docs/ping-explore.png "component hierarchy")
 
@@ -64,7 +64,7 @@ Containerised synthetic ping check as per: https://github.com/influxdata/telegra
 see: explore/hr-example.json or explore/telegraf-components.json
 
 ### example dashboard with stack link 
-see: dashboards/http_response-overview.json
+see: complete-apps/http_response
 
 ![../docs/http_response-explore1.png](../docs/http_response-explore1.png "component hierarchy")
 ![../docs/http_response-explore2.png](../docs/http_response-explore2.png "component hierarchy")

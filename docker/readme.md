@@ -42,13 +42,13 @@ Default values for env vars are defined in entrypoint.sh
 ## ping component=ping
 Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping
 
-# env vars
+### env vars
 - urls - hosts to send ping packets to
 
-# example explore node
+### example explore node
 see: explore/hr-example.json or explore/telegraf-components.json
 
-# example dashboard with stack link 
+### example dashboard with stack link 
 see: dashboards/ping-overview.json
 
 ![../docs/ping-explore.png](../docs/ping-explore.png "component hierarchy")
@@ -57,13 +57,13 @@ see: dashboards/ping-overview.json
 ## http_response component=http_response
 Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response
 
-# env vars
+### env vars
 - urls - hosts to poll via http
 
-# example explore node
+### example explore node
 see: explore/hr-example.json or explore/telegraf-components.json
 
-# example dashboard with stack link 
+### example dashboard with stack link 
 see: dashboards/http_response-overview.json
 
 ![../docs/http_response-explore1.png](../docs/http_response-explore1.png "component hierarchy")

@@ -1,0 +1,352 @@
+
+
+{
+    "type": "FolderSyncDefinition",
+    "name": "Ping",
+    "description": "",
+    "children": [
+        {
+            "type": "DashboardV2SyncDefinition",
+            "name": "Telegraf - Ping Overview",
+            "description": "",
+            "title": "Telegraf - Ping Overview",
+            "rootPanel": null,
+            "theme": "Light",
+            "topologyLabelMap": {
+                "data": {
+                    "component": [
+                        "ping"
+                    ]
+                }
+            },
+            "refreshInterval": 0,
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-1d"
+                },
+                "to": null
+            },
+            "layout": {
+                "layoutType": "Grid",
+                "layoutStructures": [
+                    {
+                        "key": "panel2D35F883AF9D1A42",
+                        "structure": "{\"height\":7,\"width\":12,\"x\":0,\"y\":17}"
+                    },
+                    {
+                        "key": "panelB29C728596C6EB44",
+                        "structure": "{\"height\":9,\"width\":10,\"x\":0,\"y\":0}"
+                    },
+                    {
+                        "key": "panel6BCA9699BC60F948",
+                        "structure": "{\"height\":9,\"width\":7,\"x\":17,\"y\":0}"
+                    },
+                    {
+                        "key": "panel74BD40A0BFEA0942",
+                        "structure": "{\"height\":9,\"width\":7,\"x\":10,\"y\":0}"
+                    },
+                    {
+                        "key": "panel091874819170EA4B",
+                        "structure": "{\"height\":8,\"width\":8,\"x\":0,\"y\":9}"
+                    },
+                    {
+                        "key": "panel669AB762B5C6D848",
+                        "structure": "{\"height\":8,\"width\":8,\"x\":8,\"y\":9}"
+                    },
+                    {
+                        "key": "panel4ACC569EAD53984E",
+                        "structure": "{\"height\":8,\"width\":8,\"x\":16,\"y\":9}"
+                    },
+                    {
+                        "key": "panel9C676436B0FF9940",
+                        "structure": "{\"height\":7,\"width\":12,\"x\":12,\"y\":17}"
+                    }
+                ]
+            },
+            "panels": [
+                {
+                    "id": null,
+                    "key": "panel2D35F883AF9D1A42",
+                    "title": "Pings",
+                    "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10},\"title\":{\"fontSize\":14},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=ping_result_code\nservice={{service}} environment={{environment}} url={{url}}\n| max by url,environment,location,service,ip",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panelB29C728596C6EB44",
+                    "title": "Pings Status",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":null,\"to\":0,\"color\":\"#98ECA9\"},{\"from\":1,\"to\":null,\"color\":\"#df3d3d\"},{\"from\":null,\"to\":null,\"color\":\"#FFB5B5\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"location\",\"value\":\"location\"},{\"label\":\"service\",\"value\":\"service\"}],\"aggregationType\":\"avg\"},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=ping_result_code\nservice={{service}} environment={{environment}} url={{url}}\n\n| max by url,environment,location,service",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": {
+                        "type": "BeginBoundedTimeRange",
+                        "from": {
+                            "type": "RelativeTimeRangeBoundary",
+                            "relativeTime": "-15m"
+                        },
+                        "to": null
+                    },
+                    "coloringRules": null,
+                    "linkedDashboards": [
+                        {
+                            "id": "K9n4ordTHrg4lJ0YcQsrdo7sZ102PGLdZcKpl645YUkxUzQbqayJGhnnY1lC",
+                            "relativePath": "",
+                            "includeTimeRange": false,
+                            "includeVariables": true
+                        }
+                    ]
+                },
+                {
+                    "id": null,
+                    "key": "panel6BCA9699BC60F948",
+                    "title": "Packet Loss > 0%",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":null,\"to\":0,\"color\":\"#98ECA9\"},{\"from\":1,\"to\":null,\"color\":\"#df3d3d\"},{\"from\":null,\"to\":null,\"color\":\"#FFB5B5\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"location\",\"value\":\"location\"}],\"aggregationType\":\"latest\"},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=pping_percent_packet_loss  \nservice={{service}} environment={{environment}} url={{url}}\n\n| filter max > 0\n| max by url,environment,location,service",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": {
+                        "type": "BeginBoundedTimeRange",
+                        "from": {
+                            "type": "RelativeTimeRangeBoundary",
+                            "relativeTime": "-15m"
+                        },
+                        "to": null
+                    },
+                    "coloringRules": null,
+                    "linkedDashboards": [
+                        {
+                            "id": "K9n4ordTHrg4lJ0YcQsrdo7sZ102PGLdZcKpl645YUkxUzQbqayJGhnnY1lC",
+                            "relativePath": "",
+                            "includeTimeRange": false,
+                            "includeVariables": true
+                        }
+                    ]
+                },
+                {
+                    "id": null,
+                    "key": "panel74BD40A0BFEA0942",
+                    "title": "Failed Pings",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":null,\"to\":0,\"color\":\"#98ECA9\"},{\"from\":1,\"to\":null,\"color\":\"#df3d3d\"},{\"from\":null,\"to\":null,\"color\":\"#FFB5B5\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"location\",\"value\":\"location\"},{\"label\":\"service\",\"value\":\"service\"}],\"aggregationType\":\"latest\"},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=ping_result_code \nservice={{service}} environment={{environment}} url={{url}}\n\n| filter max > 0\n| max by url,environment,location,service ",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": {
+                        "type": "BeginBoundedTimeRange",
+                        "from": {
+                            "type": "RelativeTimeRangeBoundary",
+                            "relativeTime": "-15m"
+                        },
+                        "to": null
+                    },
+                    "coloringRules": null,
+                    "linkedDashboards": [
+                        {
+                            "id": "K9n4ordTHrg4lJ0YcQsrdo7sZ102PGLdZcKpl645YUkxUzQbqayJGhnnY1lC",
+                            "relativePath": "",
+                            "includeTimeRange": false,
+                            "includeVariables": true
+                        }
+                    ]
+                },
+                {
+                    "id": null,
+                    "key": "panel091874819170EA4B",
+                    "title": "average response time",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"response time\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"ms\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{url}} {{location}} {{environment}}\"}}]}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=ping_average_response_ms \nservice={{service}} environment={{environment}} url={{url}}\n\n| avg by url,environment,location,service,environment",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panel669AB762B5C6D848",
+                    "title": "Packet Loss %",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"% loss\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\",\"minimum\":0,\"maximum\":100},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{url}} {{location}} {{environment}}\"}}]}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=ping_percent_packet_loss  \nservice={{service}} environment={{environment}} url={{url}}\n\n| avg by url,environment,location,service,environment",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panel4ACC569EAD53984E",
+                    "title": "Ping Errors Over Time",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"errors\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{url}} {{location}} {{environment}}\"}}],\"general\":{\"type\":\"column\",\"displayType\":\"stacked\",\"fillOpacity\":1,\"mode\":\"timeSeries\"},\"color\":{\"family\":\"Categorical Default\"}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=ping_result_code \nservice={{service}} environment={{environment}} url={{url}}\n\n | filter max>0\n| count by url,environment,location,service,environment",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panel9C676436B0FF9940",
+                    "title": "Failed Pings Total",
+                    "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10,\"aggregationType\":\"sum\"},\"title\":{\"fontSize\":14},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "_sourcecategory=metrics/telegraf component=ping metric=ping_result_code\nservice={{service}} environment={{environment}} url={{url}}\n| filter max > 0\n| count by url,environment,location,service,ip",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                }
+            ],
+            "variables": [
+                {
+                    "id": null,
+                    "name": "url",
+                    "displayName": "url",
+                    "defaultValue": "*",
+                    "sourceDefinition": {
+                        "variableSourceType": "MetadataVariableSourceDefinition",
+                        "filter": "component=ping",
+                        "key": "url"
+                    },
+                    "allowMultiSelect": false,
+                    "includeAllOption": true,
+                    "hideFromUI": false
+                },
+                {
+                    "id": null,
+                    "name": "environment",
+                    "displayName": "environment",
+                    "defaultValue": "*",
+                    "sourceDefinition": {
+                        "variableSourceType": "MetadataVariableSourceDefinition",
+                        "filter": "component=ping",
+                        "key": "environment"
+                    },
+                    "allowMultiSelect": false,
+                    "includeAllOption": true,
+                    "hideFromUI": false
+                },
+                {
+                    "id": null,
+                    "name": "service",
+                    "displayName": "service",
+                    "defaultValue": "*",
+                    "sourceDefinition": {
+                        "variableSourceType": "MetadataVariableSourceDefinition",
+                        "filter": "component=ping",
+                        "key": "service"
+                    },
+                    "allowMultiSelect": false,
+                    "includeAllOption": true,
+                    "hideFromUI": false
+                }
+            ],
+            "coloringRules": []
+        }
+    ]
+}
+

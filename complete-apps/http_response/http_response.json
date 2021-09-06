@@ -1,0 +1,434 @@
+
+
+{
+    "type": "FolderSyncDefinition",
+    "name": "http_response",
+    "description": "",
+    "children": [
+        {
+            "type": "DashboardV2SyncDefinition",
+            "name": "Telegraf - Http_response Overview",
+            "description": "",
+            "title": "Telegraf - Http_response Overview",
+            "rootPanel": null,
+            "theme": "Light",
+            "topologyLabelMap": {
+                "data": {
+                    "component": [
+                        "http_response"
+                    ]
+                }
+            },
+            "refreshInterval": 0,
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-1d"
+                },
+                "to": null
+            },
+            "layout": {
+                "layoutType": "Grid",
+                "layoutStructures": [
+                    {
+                        "key": "panel2D35F883AF9D1A42",
+                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":11}"
+                    },
+                    {
+                        "key": "panelB29C728596C6EB44",
+                        "structure": "{\"height\":9,\"width\":9,\"x\":0,\"y\":1}"
+                    },
+                    {
+                        "key": "panel74BD40A0BFEA0942",
+                        "structure": "{\"height\":9,\"width\":8,\"x\":9,\"y\":1}"
+                    },
+                    {
+                        "key": "panel4ACC569EAD53984E",
+                        "structure": "{\"height\":8,\"width\":9,\"x\":0,\"y\":18}"
+                    },
+                    {
+                        "key": "panel817A41F1AEF26840",
+                        "structure": "{\"height\":8,\"width\":8,\"x\":9,\"y\":18}"
+                    },
+                    {
+                        "key": "panelD612552FA33D3947",
+                        "structure": "{\"height\":9,\"width\":7,\"x\":17,\"y\":1}"
+                    },
+                    {
+                        "key": "panelADD63657A08F084F",
+                        "structure": "{\"height\":8,\"width\":10,\"x\":0,\"y\":26}"
+                    },
+                    {
+                        "key": "panel955E4F4C8C7C7B41",
+                        "structure": "{\"height\":8,\"width\":14,\"x\":10,\"y\":26}"
+                    },
+                    {
+                        "key": "panelFDC39DEEAB97E849",
+                        "structure": "{\"height\":8,\"width\":7,\"x\":17,\"y\":18}"
+                    },
+                    {
+                        "key": "panelPANE-963EEAE3BC6F5B49",
+                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":0}"
+                    },
+                    {
+                        "key": "panelC7BE09B4B3D0F84F",
+                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":10}"
+                    },
+                    {
+                        "key": "panel06B74D75863CEB4A",
+                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":11,\"minHeight\":3,\"minWidth\":3}"
+                    }
+                ]
+            },
+            "panels": [
+                {
+                    "id": null,
+                    "key": "panel2D35F883AF9D1A42",
+                    "title": "HTTP Check Responses Success",
+                    "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10,\"aggregationType\":\"sum\"},\"title\":{\"fontSize\":14},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code result=success\nservice={{service}} environment={{environment}} server={{url}}\n\n| count by server,environment,location,service,method,status_code,result",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panelB29C728596C6EB44",
+                    "title": "Pings Status",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":null,\"to\":0,\"color\":\"#98ECA9\"},{\"from\":1,\"to\":null,\"color\":\"#df3d3d\"},{\"from\":null,\"to\":null,\"color\":\"#FFB5B5\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"location\",\"value\":\"location\"},{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"environment\",\"value\":\"environment\"}],\"aggregationType\":\"latest\"},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code\nservice={{service}} environment={{environment}} server={{url}}\n\n| max by server,environment,location,service,method",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": {
+                        "type": "BeginBoundedTimeRange",
+                        "from": {
+                            "type": "RelativeTimeRangeBoundary",
+                            "relativeTime": "-1h"
+                        },
+                        "to": null
+                    },
+                    "coloringRules": null,
+                    "linkedDashboards": [
+                        {
+                            "id": "K9n4ordTHrg4lJ0YcQsrdo7sZ102PGLdZcKpl645YUkxUzQbqayJGhnnY1lC",
+                            "relativePath": "../../Ping/Telegraf - Ping Overview",
+                            "includeTimeRange": false,
+                            "includeVariables": true
+                        }
+                    ]
+                },
+                {
+                    "id": null,
+                    "key": "panel74BD40A0BFEA0942",
+                    "title": "Failed Pings",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"honeyComb\",\"displayType\":\"default\",\"mode\":\"honeyComb\"},\"honeyComb\":{\"thresholds\":[{\"from\":null,\"to\":0,\"color\":\"#98ECA9\"},{\"from\":1,\"to\":null,\"color\":\"#df3d3d\"},{\"from\":null,\"to\":null,\"color\":\"#FFB5B5\"}],\"shape\":\"hexagon\",\"groupBy\":[{\"label\":\"result\",\"value\":\"result\"},{\"label\":\"environment\",\"value\":\"environment\"},{\"label\":\"service\",\"value\":\"service\"},{\"label\":\"location\",\"value\":\"location\"}],\"aggregationType\":\"latest\"},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{url}}\n\n| count by server,environment,location,service,method,result",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": {
+                        "type": "BeginBoundedTimeRange",
+                        "from": {
+                            "type": "RelativeTimeRangeBoundary",
+                            "relativeTime": "-1h"
+                        },
+                        "to": null
+                    },
+                    "coloringRules": null,
+                    "linkedDashboards": [
+                        {
+                            "id": "K9n4ordTHrg4lJ0YcQsrdo7sZ102PGLdZcKpl645YUkxUzQbqayJGhnnY1lC",
+                            "relativePath": "../../Ping/Telegraf - Ping Overview",
+                            "includeTimeRange": false,
+                            "includeVariables": true
+                        }
+                    ]
+                },
+                {
+                    "id": null,
+                    "key": "panel4ACC569EAD53984E",
+                    "title": "Successful Checks Over Time",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"checks\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{server}} {{location}} {{environment}}\"}}],\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\",\"aggregationType\":\"sum\"},\"color\":{\"family\":\"Categorical Default\"}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code  result=\"success\"\nservice={{service}} environment={{environment}} server={{url}}\n| count by server,environment,location,service,method \n",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panel817A41F1AEF26840",
+                    "title": "Failed Checks Over Time",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"checks\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{server}} {{location}} {{environment}}\"}}],\"general\":{\"type\":\"column\",\"displayType\":\"stacked\",\"fillOpacity\":1,\"mode\":\"timeSeries\",\"aggregationType\":\"sum\"},\"color\":{\"family\":\"Diverging 2\"}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code not result=\"success\"\nservice={{service}} environment={{environment}} server={{url}}\n| count by server,environment,location,service,method \n",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panelD612552FA33D3947",
+                    "title": "Failed Result Counts",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"bar\",\"displayType\":\"default\",\"fillOpacity\":1,\"mode\":\"distribution\"},\"color\":{\"family\":\"Categorical Default\"},\"overrides\":[]}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{url}}\n| count by result",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": {
+                        "type": "BeginBoundedTimeRange",
+                        "from": {
+                            "type": "RelativeTimeRangeBoundary",
+                            "relativeTime": "-1h"
+                        },
+                        "to": null
+                    },
+                    "coloringRules": null,
+                    "linkedDashboards": [
+                        {
+                            "id": "K9n4ordTHrg4lJ0YcQsrdo7sZ102PGLdZcKpl645YUkxUzQbqayJGhnnY1lC",
+                            "relativePath": "../../Ping/Telegraf - Ping Overview",
+                            "includeTimeRange": false,
+                            "includeVariables": true
+                        }
+                    ]
+                },
+                {
+                    "id": null,
+                    "key": "panelADD63657A08F084F",
+                    "title": "Response Time",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"checks\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{server}} {{location}} {{environment}}\"}}],\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"color\":{\"family\":\"Categorical Default\"}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_response_time  \nservice={{service}} environment={{environment}} server={{url}}\n| avg  by server,environment,location,service,method",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panel955E4F4C8C7C7B41",
+                    "title": "Slowest Response Times",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"aggregationType\":\"avg\",\"decimals\":3}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_response_time  result=\"success\"\nservice={{service}} environment={{environment}} server={{url}}\n| topk(10,max) by server,environment,location,service,method\n| max by server,environment,location,service,method\n",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panelFDC39DEEAB97E849",
+                    "title": "Failed Checks",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"bar\",\"displayType\":\"default\",\"fillOpacity\":1,\"mode\":\"distribution\",\"aggregationType\":\"sum\"},\"color\":{\"family\":\"Categorical Default\"},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{server}} \"}}]}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code not result=\"success\"\nservice={{service}} environment={{environment}} server={{url}}\n| sum by server\n",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                },
+                {
+                    "id": null,
+                    "key": "panelPANE-963EEAE3BC6F5B49",
+                    "title": "Current Status",
+                    "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\"},\"series\":{},\"legend\":{\"enabled\":false}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "TextPanel",
+                    "text": ""
+                },
+                {
+                    "id": null,
+                    "key": "panelC7BE09B4B3D0F84F",
+                    "title": "Check History",
+                    "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\"},\"series\":{},\"legend\":{\"enabled\":false}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "TextPanel",
+                    "text": ""
+                },
+                {
+                    "id": null,
+                    "key": "panel06B74D75863CEB4A",
+                    "title": "HTTP Check Responses Failures",
+                    "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10,\"aggregationType\":\"sum\"},\"title\":{\"fontSize\":14},\"series\":{}}",
+                    "keepVisualSettingsConsistentWithParent": true,
+                    "panelType": "SumoSearchPanel",
+                    "queries": [
+                        {
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{url}}\n\n| sum by server,environment,location,service,method,result",
+                            "queryType": "Metrics",
+                            "queryKey": "A",
+                            "metricsQueryMode": "Advanced",
+                            "metricsQueryData": null,
+                            "tracesQueryData": null,
+                            "parseMode": "Auto",
+                            "timeSource": "Message"
+                        }
+                    ],
+                    "description": "",
+                    "timeRange": null,
+                    "coloringRules": null,
+                    "linkedDashboards": []
+                }
+            ],
+            "variables": [
+                {
+                    "id": null,
+                    "name": "url",
+                    "displayName": "url",
+                    "defaultValue": "*",
+                    "sourceDefinition": {
+                        "variableSourceType": "MetadataVariableSourceDefinition",
+                        "filter": "component=ping",
+                        "key": "url"
+                    },
+                    "allowMultiSelect": false,
+                    "includeAllOption": true,
+                    "hideFromUI": false
+                },
+                {
+                    "id": null,
+                    "name": "environment",
+                    "displayName": "environment",
+                    "defaultValue": "*",
+                    "sourceDefinition": {
+                        "variableSourceType": "MetadataVariableSourceDefinition",
+                        "filter": "component=ping",
+                        "key": "environment"
+                    },
+                    "allowMultiSelect": false,
+                    "includeAllOption": true,
+                    "hideFromUI": false
+                },
+                {
+                    "id": null,
+                    "name": "service",
+                    "displayName": "service",
+                    "defaultValue": "*",
+                    "sourceDefinition": {
+                        "variableSourceType": "MetadataVariableSourceDefinition",
+                        "filter": "component=ping",
+                        "key": "service"
+                    },
+                    "allowMultiSelect": false,
+                    "includeAllOption": true,
+                    "hideFromUI": false
+                }
+            ],
+            "coloringRules": []
+        }
+    ]
+}
+

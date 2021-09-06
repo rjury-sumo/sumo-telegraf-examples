@@ -41,6 +41,14 @@
                     "nextLevelsWithConditions": [],
                     "nextLevel": null
                 }
+            },
+            {
+                "condition": "http_response",
+                "level": {
+                    "entityType": "server",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": null
+                }
             }     
         ],
         "nextLevel": null

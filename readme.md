@@ -43,7 +43,7 @@
 This is a very rough demo project to show how we can:
 - use telegraf to collect and forward base level linux metrics to sumo for disk, cpu, mem
 - monitor per linux process with procstat plugin
-- [docker image](./docker) for plugins such as ping/ synthetic checks
+- [docker image](./docker) for plugins such as ping/ http-response synthetic checks
 - create a custom [Explore](https://help.sumologic.com/Visualizations-and-Alerts/Explore) hierarchy using telegraf metrics or custom metric tag dimensions such as environment or service name.
 - add custom stack linked dashboards to the explore tree
 - create example alerts.
@@ -51,7 +51,7 @@ This is a very rough demo project to show how we can:
 ###  1.1. <a name='highlights'></a>highlights
 - example linux telegraf host config [here](./config/linux.telegraf.conf). The template includes key plugins for linux with some config tweaks to provide a good OOTB starting config that balances metric choices vs DPM.
 You can also find in here an example of per process metrics collection with procstat.
-- [docker image](./docker) for plugins such as ping/ synthetic checks
+- [docker image](./docker) for plugins such as ping/ http_response checks
 - a [script to create a custom heirarchy by telegraf component](explore/new-hr-os-nginx-redis.py)
 - a [script to create a custom hierarchy by custom tags](explore/new-hr.py)
 - a [linux host level dashboard](dashboards/1-linux-host.json) for telegraf template

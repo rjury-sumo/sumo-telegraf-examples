@@ -198,6 +198,36 @@
                 "value": "kubernetes"
             },
             "id": "0000000000000524"
+        },
+        {
+            "name": "telegraf-service",
+            "level": {
+                "entityType": "service",
+                "nextLevelsWithConditions": [],
+                "nextLevel": {
+                    "entityType": "environment",
+                    "nextLevelsWithConditions": [],
+                    "nextLevel": {
+                        "entityType": "component",
+                        "nextLevelsWithConditions": [
+                            {
+                                "condition": "os-linux",
+                                "level": {
+                                    "entityType": "_sourcehost",
+                                    "nextLevelsWithConditions": [],
+                                    "nextLevel": null
+                                }
+                            }
+                        ],
+                        "nextLevel": null
+                    }
+                }
+            },
+            "filter": {
+                "key": "_sourcecategory",
+                "value": "metrics/telegraf"
+            },
+            "id": "000000000000075B"
         }
     ]
 }

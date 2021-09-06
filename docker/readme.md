@@ -14,6 +14,9 @@ you can use one of the templates in ./conf as these are copied to image or suppl
 ```
 docker run -it -e SUMO_URL="$SUMO_URL"  -e env=test sumo_telegraf_agent telegraf --config ping.conf
 docker run -it -e SUMO_URL="$SUMO_URL"  -e env=test -e urls='invalid.host' sumo_telegraf_agent telegraf  --config ping.conf
+docker run -it -e SUMO_URL="$SUMO_URL"  -e env=uat -e urls='http://sumologic.com' sumo_telegraf_agent telegraf  --config http_response.conf
+docker run -it -e SUMO_URL="$SUMO_URL"  -e env=prod -e urls='http://sumologic.com' -e location=living_room sumo_telegraf_agent telegraf  --config http_response.conf
+
 ```
 
 
@@ -36,9 +39,8 @@ Default values for env vars are defined in entrypoint.sh
 - service
 - location
 
-## ping
+## ping component=ping
 Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping
-component=ping
 
 # env vars
 - urls - hosts to send ping packets to
@@ -50,6 +52,24 @@ see: explore/hr-example.json or explore/telegraf-components.json
 see: dashboards/ping-overview.json
 
 ![../docs/ping-explore.png](../docs/ping-explore.png "component hierarchy")
+
+
+## http_response component=http_response
+Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response
+
+# env vars
+- urls - hosts to poll via http
+
+# example explore node
+see: explore/hr-example.json or explore/telegraf-components.json
+
+# example dashboard with stack link 
+see: dashboards/http_response-overview.json
+
+![../docs/http_response-explore1.png](../docs/http_response-explore1.png "component hierarchy")
+![../docs/http_response-explore2.png](../docs/http_response-explore2.png "component hierarchy")
+
+
 
 
 

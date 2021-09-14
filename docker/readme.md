@@ -43,7 +43,7 @@ Default values for env vars are defined in entrypoint.sh
 Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping
 
 ### env vars
-- urls - hosts to send ping packets to
+- urls - hosts to send ping packets to. to define multiple hosts supply as csv list for example: ```a,b,c```
 
 ### example explore node
 see: explore/hr-example.json or explore/telegraf-components.json
@@ -58,7 +58,7 @@ see: complete-apps/ping
 Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response
 
 ### env vars
-- urls - hosts to poll via http
+- urls - hosts to poll via http. to define multiple hosts supply as csv list for example: ```http://a.b.c,https://b.c.d```
 
 ### example explore node
 see: explore/hr-example.json or explore/telegraf-components.json

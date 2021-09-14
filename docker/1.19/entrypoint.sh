@@ -24,4 +24,17 @@ export ip=`hostname -i`
 export urls=${urls:='sumologic.com'}
 export interval=${interval:='60s'}
 export flush_interval=${flush_interval:='60s'}
+
+# urls can be a list which is tricky to replace
+# use just a csv list with no quotes and we will reformat that into a list correctly
+if  echo "$urls" | grep ','; then 
+  urlslist=`echo $urls | sed 's/,/","/g'`
+fi
+
+if  echo "$urls" | grep ',' > /dev/null 2>&1; then 
+  sed -i "s|.{urls}|$urlslist|g" ping.conf; 
+  sed -i "s|.{urls}|$urlslist|g" http_response.conf; 
+  cat http_response.conf | grep "urls ="
+fi
+
 exec "$@"

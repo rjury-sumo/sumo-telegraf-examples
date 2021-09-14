@@ -1,0 +1,23 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: sumo-synthetics
+spec:
+  containers:
+    - image: rickjury/sumo-telegraf-agent:sumo-telegraf-agent
+      name: sumo-telegraf-agent
+      args: ["telegraf","--config","http_response.conf"]
+      env:
+      - name: SUMO_URL
+        valueFrom:
+          secretKeyRef:
+            name: sumourl
+            key: SUMO_URL
+      - name: urls
+        value: "http://sumologic.com,https://help.sumologic.com,https://investor.sumologic.com"
+      - name: env
+        value: "test"
+      - name: service
+        value: "testapp"
+      - name: location
+        value: "my_mac"

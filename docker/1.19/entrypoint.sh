@@ -22,5 +22,6 @@ export ip=`hostname -i`
 
 # ping defaults
 export urls=${urls:='sumologic.com'}
-
+export interval=${interval:='60s'}
+export flush_interval=${flush_interval:='60s'}
 exec "$@"

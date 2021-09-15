@@ -1,30 +1,43 @@
 # docker telegraf
-Docker images based on https://github.com/influxdata/influxdata-docker
-The origional exposes ports which would restrict to one running container per host potentially without jiggery pokery.
-In this project we will also include example telegraf.conf files with env vars to make configuration launch more dynamic.
+Docker images based on https://github.com/influxdata/influxdata-docker to send SumoLogic output plugin metrics using the telegraf input plugins for synthetic tests:
+- ping
+- http_response
+
+Note: the dockerfile is very similar but disables the exposed ports which would restrict to one running container per host. We don't need influxdb since we are using the sumo output plugin.
+
+In this project we will also include example telegraf.conf files with env vars to make configuration launch more dynamic so it's ready to go in an enterprise environment.
 
 ## build
 ```
 docker build -t sumo_telegraf_agent .
 ```
+
+## docker hub
+Container image ready to use at:
+https://hub.docker.com/repository/docker/rickjury/sumo-telegraf-agent/general
+
+for example:
+```rickjury/sumo-telegraf-agent:sumo-telegraf-agent```
+
 ## setup and run
 make sure when you execute the container you have a valid conf file.
 you can use one of the templates in ./conf as these are copied to image or supply your own.
 
+For other examples to orchestrate container see: docker/orchestration
+
 ```
-docker run -it -e SUMO_URL="$SUMO_URL"  -e env=test sumo_telegraf_agent telegraf --config ping.conf
 docker run -it -e SUMO_URL="$SUMO_URL"  -e env=test -e urls='invalid.host' sumo_telegraf_agent telegraf  --config ping.conf
 docker run -it -e SUMO_URL="$SUMO_URL"  -e env=uat -e urls='http://sumologic.com' sumo_telegraf_agent telegraf  --config http_response.conf
-docker run -it -e SUMO_URL="$SUMO_URL"  -e env=prod -e urls='http://sumologic.com' -e location=living_room sumo_telegraf_agent telegraf  --config http_response.conf
-
+docker run -it -e SUMO_URL="$SUMO_URL"  -e env=prod -e urls='http://sumologic.com,https://support.sumologic.com' -e location=living_room sumo_telegraf_agent telegraf  --config http_response.conf
 ```
-
 
 ## global tags
 Posts to sumo with:
+```
 _sourcecategory=metrics/telegraf
-_sourcehost=hostname
-ip=container ip
+_sourcehost=<container hostname>
+ip=<ontainer <ontainer ip address>
+```
 
 ## env vars
 runtime container variables allow you to run potentially multiple container instaces with custom config.
@@ -34,12 +47,25 @@ Default values for env vars are defined in entrypoint.sh
 - SUMO_URL 
 
 ### env vars optional for all configs:
-- X_SUMO_FIELDS
-- env
-- service
-- location
+This container is designed to send some extra contextual information with the default metric dimensions.
 
-## ping component=ping
+Typically with synthetic checks we would want to add additional dimensions such as:
+- X_SUMO_FIELDS: any arbitrary commas separated list of fields.
+- env: sends a tag called environment to sumo
+- service: the service name for grouping endpoints
+- location: the location the dockerised test is run from. Useful if you want to test from multiple source locations.
+
+### env vars for check intervals
+Interval can be supplied as vars, defined in entrypoint.sh as below:
+```
+export interval=${interval:='60s'}
+export flush_interval=${flush_interval:='60s'}
+```
+
+## ping
+```
+component=ping
+```
 Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/ping
 
 ### env vars
@@ -54,7 +80,11 @@ see: complete-apps/ping
 ![../docs/ping-explore.png](../docs/ping-explore.png "component hierarchy")
 
 
-## http_response component=http_response
+## http_response 
+```
+component=http_response
+```
+
 Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response
 
 ### env vars

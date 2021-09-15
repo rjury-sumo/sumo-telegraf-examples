@@ -525,8 +525,8 @@
             "defaultValue": "*",
             "sourceDefinition": {
                 "variableSourceType": "MetadataVariableSourceDefinition",
-                "filter": "component=ping",
-                "key": "url"
+                "filter": "component=http_response",
+                "key": "server"
             },
             "allowMultiSelect": false,
             "includeAllOption": true,
@@ -539,7 +539,7 @@
             "defaultValue": "*",
             "sourceDefinition": {
                 "variableSourceType": "MetadataVariableSourceDefinition",
-                "filter": "component=ping",
+                "filter": "component=http_response",
                 "key": "environment"
             },
             "allowMultiSelect": false,
@@ -553,7 +553,7 @@
             "defaultValue": "*",
             "sourceDefinition": {
                 "variableSourceType": "MetadataVariableSourceDefinition",
-                "filter": "component=ping",
+                "filter": "component=http_response",
                 "key": "service"
             },
             "allowMultiSelect": false,

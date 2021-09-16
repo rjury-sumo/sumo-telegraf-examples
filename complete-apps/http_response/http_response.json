@@ -325,7 +325,7 @@
                     "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\",\"fontSize\":12},\"series\":{},\"legend\":{\"enabled\":false}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "TextPanel",
-                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response-componenthttp_response\n"
+                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response\n"
                 },
                 {
                     "id": null,
@@ -1151,7 +1151,7 @@
                     "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\",\"fontSize\":12},\"series\":{},\"legend\":{\"enabled\":false}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "TextPanel",
-                    "text": "This dashboard displays metric data for telegraf agens using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response-componenthttp_response\n"
+                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response\n"
                 },
                 {
                     "id": null,
@@ -1485,39 +1485,39 @@
                 "layoutStructures": [
                     {
                         "key": "panel2D35F883AF9D1A42",
-                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":27}"
+                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":19}"
                     },
                     {
                         "key": "panel4ACC569EAD53984E",
-                        "structure": "{\"height\":7,\"width\":8,\"x\":0,\"y\":12}"
+                        "structure": "{\"height\":7,\"width\":8,\"x\":0,\"y\":4}"
                     },
                     {
                         "key": "panel817A41F1AEF26840",
-                        "structure": "{\"height\":7,\"width\":8,\"x\":8,\"y\":12}"
+                        "structure": "{\"height\":7,\"width\":8,\"x\":8,\"y\":4}"
                     },
                     {
                         "key": "panelADD63657A08F084F",
-                        "structure": "{\"height\":7,\"width\":8,\"x\":16,\"y\":12}"
+                        "structure": "{\"height\":7,\"width\":8,\"x\":16,\"y\":4}"
                     },
                     {
                         "key": "panel955E4F4C8C7C7B41",
-                        "structure": "{\"height\":8,\"width\":24,\"x\":0,\"y\":41}"
+                        "structure": "{\"height\":8,\"width\":24,\"x\":0,\"y\":33}"
                     },
                     {
                         "key": "panelC7BE09B4B3D0F84F",
-                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":11}"
+                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":3}"
                     },
                     {
                         "key": "panel2F0B5D7B90ADE943",
-                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":34}"
+                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":26}"
                     },
                     {
                         "key": "panelA364F2689C8D8843",
-                        "structure": "{\"height\":8,\"width\":8,\"x\":8,\"y\":19}"
+                        "structure": "{\"height\":8,\"width\":8,\"x\":8,\"y\":11}"
                     },
                     {
                         "key": "panel509833E4868F4B4D",
-                        "structure": "{\"height\":8,\"width\":8,\"x\":16,\"y\":19}"
+                        "structure": "{\"height\":8,\"width\":8,\"x\":16,\"y\":11}"
                     },
                     {
                         "key": "panel6B141E65B39EE94F",
@@ -1525,7 +1525,7 @@
                     },
                     {
                         "key": "panelPANE-E778CC96806FD941",
-                        "structure": "{\"height\":8,\"width\":8,\"x\":0,\"y\":19}"
+                        "structure": "{\"height\":8,\"width\":8,\"x\":0,\"y\":11}"
                     }
                 ]
             },
@@ -1582,7 +1582,7 @@
                     "id": null,
                     "key": "panel817A41F1AEF26840",
                     "title": "Failed Checks By Server",
-                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"checks\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"series\":{},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"color\":{\"family\":\"Categorical Default\"},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{server}}\"}}]}",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":9,\"labelFontSize\":9},\"axisY\":{\"title\":\"checks\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"gridThickness\":1,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"},\"axisY2\":{\"title\":\"\",\"titleFontSize\":9,\"titleFontFamily\":\"Lab Grotesque Medium, \\\"Arial Bold\\\", sans-serif\",\"titleFontColor\":\"#6D8DA6\",\"titleFontWeight\":\"normal\",\"labelFontColor\":\"#6D8DA6\",\"lineColor\":\"#DDE4E9\",\"stripLines\":null,\"lineThickness\":0,\"labelFontSize\":9,\"tickColor\":\"#E6EAED\",\"logarithmic\":false,\"linear\":false,\"unit\":{\"value\":\"\",\"isCustom\":false},\"gridThickness\":0,\"valueFormatString\":\"\",\"gridColor\":\"#E6EAED\",\"labelFontFamily\":\"Lab Grotesque Regular, \\\"Arial\\\", sans-serif\",\"labelFontWeight\":\"normal\"}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":9,\"maxHeight\":40,\"showAsTable\":false,\"wrap\":true},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{server}}\"}}],\"general\":{\"type\":\"column\",\"displayType\":\"stacked\",\"fillOpacity\":1,\"mode\":\"timeSeries\"},\"color\":{\"family\":\"Categorical Default\"}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
@@ -1738,7 +1738,7 @@
                     "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\",\"fontSize\":12},\"series\":{},\"legend\":{\"enabled\":false}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "TextPanel",
-                    "text": "This dashboard displays metric data for telegraf agens using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response-componenthttp_response\n"
+                    "text": "This dashboard displays metric data for telegraf agens using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response\n"
                 },
                 {
                     "id": null,

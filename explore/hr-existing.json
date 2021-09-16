@@ -228,6 +228,69 @@
                 "value": "metrics/telegraf"
             },
             "id": "000000000000075B"
+        },
+        {
+            "name": "telegraf-components",
+            "level": {
+                "entityType": "component",
+                "nextLevelsWithConditions": [
+                    {
+                        "condition": "os-linux",
+                        "level": {
+                            "entityType": "_sourcehost",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    },
+                    {
+                        "condition": "nginx",
+                        "level": {
+                            "entityType": "_sourcehost",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    },
+                    {
+                        "condition": "database",
+                        "level": {
+                            "entityType": "db_system",
+                            "nextLevelsWithConditions": [
+                                {
+                                    "condition": "redis",
+                                    "level": {
+                                        "entityType": "_sourcehost",
+                                        "nextLevelsWithConditions": [],
+                                        "nextLevel": null
+                                    }
+                                }
+                            ],
+                            "nextLevel": null
+                        }
+                    },
+                    {
+                        "condition": "ping",
+                        "level": {
+                            "entityType": "url",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    },
+                    {
+                        "condition": "http_response",
+                        "level": {
+                            "entityType": "server",
+                            "nextLevelsWithConditions": [],
+                            "nextLevel": null
+                        }
+                    }
+                ],
+                "nextLevel": null
+            },
+            "filter": {
+                "key": "_sourcecategory",
+                "value": "metrics/telegraf"
+            },
+            "id": "0000000000000763"
         }
     ]
 }

@@ -1,0 +1,33 @@
+{
+    "name": "telegraf-synthetics",
+    "level": {
+        "entityType": "service",
+        "nextLevelsWithConditions": [],
+        "nextLevel": {
+            "entityType": "component",
+            "nextLevelsWithConditions": [
+                {
+                    "condition": "ping",
+                    "level": {
+                        "entityType": "url",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": null
+                    }
+                },
+                {
+                    "condition": "http_response",
+                    "level": {
+                        "entityType": "server",
+                        "nextLevelsWithConditions": [],
+                        "nextLevel": null
+                    }
+                }
+            ],
+            "nextLevel": null
+        }
+    },
+    "filter": {
+        "key": "_sourcecategory",
+        "value": "metrics/telegraf"
+    }
+}

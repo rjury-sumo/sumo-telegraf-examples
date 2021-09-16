@@ -85,13 +85,20 @@ see: complete-apps/ping
 component=http_response
 ```
 
-Containerised synthetic ping check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response
+Containerised synthetic http check as per: https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response
+
+For a simple example of running this container to poll several sites every minute via kubernetes see: docker/orchestration/docker-k8s/pod.yaml
 
 ### env vars
 - urls - hosts to poll via http. to define multiple hosts supply as csv list for example: ```http://a.b.c,https://b.c.d```
 
 ### example explore node
 see: explore/hr-example.json or explore/telegraf-components.json
+
+### dashboard for single or multiple nodes
+![../docs/http_response-node1.png](../docs/http_response-node1.png "node")
+![../docs/http_response-node2.png](../docs/http_response-node2.png "node2")
+![../docs/http_response-node3.png](../docs/http_response-node2.png "node3")
 
 ### example dashboard with stack link 
 see: complete-apps/http_response

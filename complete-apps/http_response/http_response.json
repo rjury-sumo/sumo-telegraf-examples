@@ -126,7 +126,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,status_code,result",
+                            "queryString": "component=http_response metric=http_response_result_code result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,status_code,result,_sourcehost,ip",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -174,7 +174,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n| quantize to 1h using count | fillmissing 0 | sum by server",
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n|  count by server | fillmissing 0 | sum by server",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -222,7 +222,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_response_time  result=\"success\"\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n| topk(10,max) by server,environment,location,service,method\n| max by server,environment,location,service,method\n",
+                            "queryString": "component=http_response metric=http_response_response_time  result=\"success\"\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n| topk(10,max) by server,environment,location,service,method\n| max by server,environment,location,service,method,_sourcehost,ip\n",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -279,7 +279,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n| quantize to 1h using count | fillmissing 0 | sum by service\n",
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n|  count by service| fillmissing 0 | sum by service\n\n",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -303,7 +303,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n| quantize to 1h using count | fillmissing 0 | sum by location\n",
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n|  count by service| fillmissing 0 | sum by location\n",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -325,7 +325,7 @@
                     "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\",\"fontSize\":12},\"series\":{},\"legend\":{\"enabled\":false}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "TextPanel",
-                    "text": "This dashboard displays metric data for telegraf agens using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response-componenthttp_response\n"
+                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response-componenthttp_response\n"
                 },
                 {
                     "id": null,
@@ -336,7 +336,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n| quantize to 1h using count | count by environment\n",
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n|  count by environment | fillmissing 0 | sum by environment\n",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -360,7 +360,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code  \nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| max by server,environment,location,service,result",
+                            "queryString": "component=http_response metric=http_response_result_code  \nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| max by server,environment,location,service,result,_sourcehost,ip",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -871,13 +871,13 @@
                 {
                     "id": null,
                     "key": "panel2D35F883AF9D1A42",
-                    "title": "HTTP Check Responses Success",
+                    "title": "HTTP Check Success History",
                     "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10,\"aggregationType\":\"sum\"},\"title\":{\"fontSize\":14},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"results\"}}]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,status_code,result",
+                            "queryString": "component=http_response metric=http_response_result_code result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,status_code,result,_sourcehost,ip",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -963,7 +963,7 @@
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n| count by server\n",
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n|  count by server| fillmissing 0 | sum by server\n",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -982,7 +982,7 @@
                     "id": null,
                     "key": "panelD612552FA33D3947",
                     "title": "Recent Failed State Counts",
-                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"bar\",\"displayType\":\"default\",\"fillOpacity\":1,\"mode\":\"distribution\"},\"color\":{\"family\":\"Categorical Default\"},\"overrides\":[]}",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12,\"title\":\"type\"},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12,\"title\":\"failures\"}},\"series\":{},\"general\":{\"type\":\"bar\",\"displayType\":\"default\",\"fillOpacity\":1,\"mode\":\"distribution\"},\"color\":{\"family\":\"Categorical Default\"},\"overrides\":[]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
@@ -1092,13 +1092,13 @@
                 {
                     "id": null,
                     "key": "panel2F0B5D7B90ADE943",
-                    "title": "HTTP Check Responses Failures History",
+                    "title": "HTTP Check Failed History",
                     "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10,\"aggregationType\":\"sum\"},\"title\":{\"fontSize\":14},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"results\"}}]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,result",
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,result,_sourcehost,ip",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -1533,13 +1533,13 @@
                 {
                     "id": null,
                     "key": "panel2D35F883AF9D1A42",
-                    "title": "HTTP Check Responses Success",
+                    "title": "HTTP Check Success History",
                     "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10,\"aggregationType\":\"sum\"},\"title\":{\"fontSize\":14},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"results\"}}]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,status_code,result",
+                            "queryString": "component=http_response metric=http_response_result_code result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| count by server,environment,location,service,method,status_code,result,_sourcehost,ip",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",
@@ -1662,13 +1662,13 @@
                 {
                     "id": null,
                     "key": "panel2F0B5D7B90ADE943",
-                    "title": "HTTP Check Responses Failures History",
+                    "title": "HTTP Check Failures History",
                     "visualSettings": "{\"general\":{\"mode\":\"distribution\",\"type\":\"table\",\"displayType\":\"default\",\"fillOpacity\":1,\"startAngle\":270,\"innerRadius\":\"30%\",\"maxNumOfSlices\":10,\"aggregationType\":\"sum\"},\"title\":{\"fontSize\":14},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"results\"}}]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
                         {
-                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| sum by server,environment,location,service,method,result",
+                            "queryString": "component=http_response metric=http_response_result_code not result=success\nservice={{service}} environment={{environment}} server={{server}} location={{location}}\n\n| sum by server,environment,location,service,method,result,_sourcehost,ip",
                             "queryType": "Metrics",
                             "queryKey": "A",
                             "metricsQueryMode": "Advanced",

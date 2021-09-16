@@ -11,8 +11,9 @@ views=sumo.get_explorer_views()
 with open('hr-existing.json', 'w') as outfile:
     json.dump(views, outfile, indent=4)
 
+file=sys.argv[1]
 # load the new explore view
-with open('./hr-example.json') as json_file:
+with open(file) as json_file:
     data = json.load(json_file)
 
 # create the explore view

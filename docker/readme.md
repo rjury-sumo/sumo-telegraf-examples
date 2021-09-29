@@ -17,7 +17,7 @@ Container image ready to use at:
 https://hub.docker.com/repository/docker/rickjury/sumo-telegraf-agent/general
 
 for example:
-```rickjury/sumo-telegraf-agent:sumo-telegraf-agent```
+```rickjury/sumo-telegraf-agent:latest```
 
 ## setup and run
 make sure when you execute the container you have a valid conf file.
@@ -105,6 +105,36 @@ see: complete-apps/http_response
 
 ![../docs/http_response-explore1.png](../docs/http_response-explore1.png "component hierarchy")
 ![../docs/http_response-explore2.png](../docs/http_response-explore2.png "component hierarchy")
+
+
+## statsd 
+```
+component=statsd
+```
+Listens for statsd or datatog statsd metrics on UDP 8125 and forwards in prometheus format to sumo.
+https://github.com/influxdata/telegraf/tree/master/plugins/inputs/statsd
+
+** you must expose UDP 8125 or the container will fail to start **
+
+To start the container:
+```
+docker run -it -p 8125:8125/udp -e SUMO_URL="$SUMO_URL"  -e env=prod -e location=dc1 rickjury/sumo-telegraf-agent telegraf  --config statsd.conf
+```
+
+To test metrics is working:
+- open shell in the running container.
+```
+echo -n "custom_metric:60|g|#shell" >/dev/udp/localhost/8125
+```
+- metrics would be visible in sumo with: component=statsd metric=custom_metric_value 
+
+### env vars
+- note default flush interval in entrypoint.sh You might want to use custom interval. Similar to statsd forwarded metrics are aggregated.
+
+
+
+
+
 
 
 

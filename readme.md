@@ -51,7 +51,7 @@ This is a very rough demo project to show how we can:
 ###  1.1. <a name='highlights'></a>highlights
 - example linux telegraf host config [here](./config/linux.telegraf.conf). The template includes key plugins for linux with some config tweaks to provide a good OOTB starting config that balances metric choices vs DPM.
 You can also find in here an example of per process metrics collection with procstat.
-- [docker image](./docker) for plugins such as ping/ http_response checks
+- [docker image](./docker) for plugins such as ping/ http_response / statsd inputs
 - a [script to create a custom heirarchy by telegraf component](explore/new-hr-os-nginx-redis.py)
 - a [script to create a custom hierarchy by custom tags](explore/new-hr.py)
 - a [linux host level dashboard](dashboards/1-linux-host.json) for telegraf template

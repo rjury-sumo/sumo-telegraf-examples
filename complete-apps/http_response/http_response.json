@@ -2,14 +2,14 @@
 
 {
     "type": "FolderSyncDefinition",
-    "name": "http_response",
+    "name": "Synthetics With Telegraf - HTTP Response",
     "description": "",
     "children": [
         {
             "type": "DashboardV2SyncDefinition",
-            "name": "1. Telegraf - Http_Response Node",
+            "name": "1. Synthetics With Telegraf - HTTP_Response Node",
             "description": "A dashboard to stack link to a single http_response node",
-            "title": "1. Telegraf - Http_Response Node",
+            "title": "1. Synthetics With Telegraf - HTTP_Response Node",
             "rootPanel": null,
             "theme": "Light",
             "topologyLabelMap": {
@@ -217,7 +217,7 @@
                     "id": null,
                     "key": "panel955E4F4C8C7C7B41",
                     "title": "Slowest Response Times",
-                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"aggregationType\":\"avg\",\"decimals\":3},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"ms\"}}]}",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"aggregationType\":\"avg\",\"decimals\":3},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"s\"}}]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
@@ -325,7 +325,7 @@
                     "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\",\"fontSize\":12},\"series\":{},\"legend\":{\"enabled\":false}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "TextPanel",
-                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response\n"
+                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service are custom tags that must be added in your telegraf conf file as tags.\n"
                 },
                 {
                     "id": null,
@@ -724,7 +724,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -738,7 +739,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -752,7 +754,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -766,16 +769,17 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 }
             ],
             "coloringRules": []
         },
         {
             "type": "DashboardV2SyncDefinition",
-            "name": "1. Telegraf - Http_Response Overview",
+            "name": "1. Synthetics With Telegraf - HTTP_Response Overview",
             "description": "",
-            "title": "1. Telegraf - Http_Response Overview",
+            "title": "1. Synthetics With Telegraf - HTTP_Response Overview",
             "rootPanel": null,
             "theme": "Light",
             "topologyLabelMap": {
@@ -799,71 +803,71 @@
                 "layoutStructures": [
                     {
                         "key": "panel2D35F883AF9D1A42",
-                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":41}"
+                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":40}"
                     },
                     {
                         "key": "panel74BD40A0BFEA0942",
-                        "structure": "{\"height\":7,\"width\":9,\"x\":0,\"y\":10}"
+                        "structure": "{\"height\":7,\"width\":9,\"x\":0,\"y\":9}"
                     },
                     {
                         "key": "panel4ACC569EAD53984E",
-                        "structure": "{\"height\":8,\"width\":9,\"x\":0,\"y\":33}"
+                        "structure": "{\"height\":8,\"width\":9,\"x\":0,\"y\":32}"
                     },
                     {
                         "key": "panel817A41F1AEF26840",
-                        "structure": "{\"height\":8,\"width\":8,\"x\":16,\"y\":33}"
+                        "structure": "{\"height\":8,\"width\":8,\"x\":16,\"y\":32}"
                     },
                     {
                         "key": "panelD612552FA33D3947",
-                        "structure": "{\"height\":7,\"width\":7,\"x\":17,\"y\":10}"
+                        "structure": "{\"height\":7,\"width\":7,\"x\":17,\"y\":9}"
                     },
                     {
                         "key": "panelADD63657A08F084F",
-                        "structure": "{\"height\":8,\"width\":7,\"x\":9,\"y\":33}"
+                        "structure": "{\"height\":8,\"width\":7,\"x\":9,\"y\":32}"
                     },
                     {
                         "key": "panelPANE-963EEAE3BC6F5B49",
-                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":3}"
+                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":2}"
                     },
                     {
                         "key": "panelC7BE09B4B3D0F84F",
-                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":32}"
+                        "structure": "{\"height\":1,\"width\":24,\"x\":0,\"y\":31}"
                     },
                     {
                         "key": "panel06B74D75863CEB4A",
-                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":17}"
+                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":16}"
                     },
                     {
                         "key": "panel2F0B5D7B90ADE943",
-                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":48}"
+                        "structure": "{\"height\":7,\"width\":24,\"x\":0,\"y\":47}"
                     },
                     {
                         "key": "panel270D17888B4D2A4D",
-                        "structure": "{\"height\":8,\"width\":24,\"x\":0,\"y\":24}"
+                        "structure": "{\"height\":8,\"width\":24,\"x\":0,\"y\":23}"
                     },
                     {
                         "key": "panel6B141E65B39EE94F",
-                        "structure": "{\"height\":3,\"width\":24,\"x\":0,\"y\":0}"
+                        "structure": "{\"height\":2,\"width\":24,\"x\":0,\"y\":0}"
                     },
                     {
                         "key": "panel03C673DEAA4A4A47",
-                        "structure": "{\"height\":7,\"width\":8,\"x\":9,\"y\":10}"
+                        "structure": "{\"height\":7,\"width\":8,\"x\":9,\"y\":9}"
                     },
                     {
                         "key": "panelF9D6C2EA88555B48",
-                        "structure": "{\"height\":6,\"width\":5,\"x\":0,\"y\":4}"
+                        "structure": "{\"height\":6,\"width\":5,\"x\":0,\"y\":3}"
                     },
                     {
                         "key": "panelEA142B4399F8184C",
-                        "structure": "{\"height\":6,\"width\":5,\"x\":5,\"y\":4}"
+                        "structure": "{\"height\":6,\"width\":5,\"x\":5,\"y\":3}"
                     },
                     {
                         "key": "panelCD012A10BF86A94E",
-                        "structure": "{\"height\":6,\"width\":9,\"x\":15,\"y\":4}"
+                        "structure": "{\"height\":6,\"width\":9,\"x\":15,\"y\":3}"
                     },
                     {
                         "key": "panel229B9F8FA3314B48",
-                        "structure": "{\"height\":6,\"width\":5,\"x\":10,\"y\":4}"
+                        "structure": "{\"height\":6,\"width\":5,\"x\":10,\"y\":3}"
                     }
                 ]
             },
@@ -1117,7 +1121,7 @@
                     "id": null,
                     "key": "panel270D17888B4D2A4D",
                     "title": "Last Response Time",
-                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"aggregationType\":\"latest\",\"decimals\":3},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"ms\"}}]}",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"aggregationType\":\"latest\",\"decimals\":3},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"s\"}}]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
@@ -1151,7 +1155,7 @@
                     "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\",\"fontSize\":12},\"series\":{},\"legend\":{\"enabled\":false}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "TextPanel",
-                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response\n"
+                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service are custom tags that must be added in your telegraf conf file as tags.\n"
                 },
                 {
                     "id": null,
@@ -1410,7 +1414,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -1424,7 +1429,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -1438,7 +1444,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -1452,16 +1459,17 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 }
             ],
             "coloringRules": []
         },
         {
             "type": "DashboardV2SyncDefinition",
-            "name": "2. Telegraf - Http_Response History",
+            "name": "2. Synthetics With Telegraf - HTTP_Response History",
             "description": "",
-            "title": "2. Telegraf - Http_Response History",
+            "title": "2. Synthetics With Telegraf - HTTP_Response History",
             "rootPanel": null,
             "theme": "Light",
             "topologyLabelMap": {
@@ -1630,7 +1638,7 @@
                     "id": null,
                     "key": "panel955E4F4C8C7C7B41",
                     "title": "Slowest Response Times",
-                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"aggregationType\":\"avg\",\"decimals\":3},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"ms\"}}]}",
+                    "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"aggregationType\":\"avg\",\"decimals\":3},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"s\"}}]}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "SumoSearchPanel",
                     "queries": [
@@ -1738,7 +1746,7 @@
                     "visualSettings": "{\"general\":{\"mode\":\"TextPanel\",\"type\":\"text\",\"displayType\":\"default\"},\"title\":{\"fontSize\":14},\"text\":{\"format\":\"markdownV2\",\"fontSize\":12},\"series\":{},\"legend\":{\"enabled\":false}}",
                     "keepVisualSettingsConsistentWithParent": true,
                     "panelType": "TextPanel",
-                    "text": "This dashboard displays metric data for telegraf agens using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service as custom tags that must be added in your telegraf conf file. For an example implementation see: https://github.com/rjury-sumo/sumo-telegraf-examples/tree/main/docker#http_response\n"
+                    "text": "This dashboard displays metric data for telegraf agents using the [http_response plugin](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/http_response).\n\nenvironment, location and service are custom tags that must be added in your telegraf conf file as tags."
                 },
                 {
                     "id": null,
@@ -1785,7 +1793,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -1799,7 +1808,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -1813,7 +1823,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 },
                 {
                     "id": null,
@@ -1827,7 +1838,8 @@
                     },
                     "allowMultiSelect": false,
                     "includeAllOption": true,
-                    "hideFromUI": false
+                    "hideFromUI": false,
+                    "valueType": "Any"
                 }
             ],
             "coloringRules": []

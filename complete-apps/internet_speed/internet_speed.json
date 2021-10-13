@@ -15,7 +15,7 @@
         "type": "BeginBoundedTimeRange",
         "from": {
             "type": "RelativeTimeRangeBoundary",
-            "relativeTime": "-15m"
+            "relativeTime": "-6h"
         },
         "to": null
     },
@@ -32,11 +32,19 @@
             },
             {
                 "key": "panel8DAE007BA9483A4C",
-                "structure": "{\"height\":10,\"width\":12,\"x\":0,\"y\":6}"
+                "structure": "{\"height\":8,\"width\":12,\"x\":0,\"y\":6}"
             },
             {
                 "key": "panelB8857D65B1127B4F",
-                "structure": "{\"height\":10,\"width\":12,\"x\":12,\"y\":6}"
+                "structure": "{\"height\":8,\"width\":12,\"x\":12,\"y\":6}"
+            },
+            {
+                "key": "panelD0A0C03C840D9B45",
+                "structure": "{\"height\":4,\"width\":24,\"x\":0,\"y\":14}"
+            },
+            {
+                "key": "panelFFF31AD2B43F3848",
+                "structure": "{\"height\":4,\"width\":24,\"x\":0,\"y\":18}"
             }
         ]
     },
@@ -107,7 +115,7 @@
             "id": null,
             "key": "panel8DAE007BA9483A4C",
             "title": "Download Speed",
-            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"title\":\"mb\",\"titleFontSize\":12,\"labelFontSize\":12,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{}}",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"title\":\"mb\",\"titleFontSize\":12,\"labelFontSize\":12,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{location}} {{host}} {{ip}}\"}}]}",
             "keepVisualSettingsConsistentWithParent": true,
             "panelType": "SumoSearchPanel",
             "queries": [
@@ -131,7 +139,7 @@
             "id": null,
             "key": "panelB8857D65B1127B4F",
             "title": "Upload Speed",
-            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"title\":\"mb\",\"titleFontSize\":12,\"labelFontSize\":12,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{}}",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"general\":{\"type\":\"line\",\"displayType\":\"default\",\"markerSize\":5,\"lineDashType\":\"solid\",\"markerType\":\"none\",\"lineThickness\":1,\"mode\":\"timeSeries\"},\"axes\":{\"axisX\":{\"title\":\"\",\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"title\":\"mb\",\"titleFontSize\":12,\"labelFontSize\":12,\"logarithmic\":false}},\"legend\":{\"enabled\":true,\"verticalAlign\":\"bottom\",\"fontSize\":12,\"maxHeight\":50,\"showAsTable\":false,\"wrap\":true},\"color\":{\"family\":\"Categorical Default\"},\"series\":{},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"{{location}} {{host}} {{ip}}\"}}]}",
             "keepVisualSettingsConsistentWithParent": true,
             "panelType": "SumoSearchPanel",
             "queries": [
@@ -148,6 +156,68 @@
             ],
             "description": "",
             "timeRange": null,
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelD0A0C03C840D9B45",
+            "title": "Download Speed Table",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"decimals\":1},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"MB\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component=internet_speed metric=internet_speed_download | avg by host,location,ip, service,environment,_sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-1h"
+                },
+                "to": null
+            },
+            "coloringRules": null,
+            "linkedDashboards": []
+        },
+        {
+            "id": null,
+            "key": "panelFFF31AD2B43F3848",
+            "title": "Upload Speed Table",
+            "visualSettings": "{\"title\":{\"fontSize\":14},\"axes\":{\"axisX\":{\"titleFontSize\":12,\"labelFontSize\":12},\"axisY\":{\"titleFontSize\":12,\"labelFontSize\":12}},\"series\":{},\"general\":{\"type\":\"table\",\"displayType\":\"default\",\"paginationPageSize\":100,\"fontSize\":12,\"mode\":\"distribution\",\"decimals\":1},\"overrides\":[{\"series\":[],\"queries\":[\"A\"],\"properties\":{\"name\":\"MB\"}}]}",
+            "keepVisualSettingsConsistentWithParent": true,
+            "panelType": "SumoSearchPanel",
+            "queries": [
+                {
+                    "queryString": "_sourcecategory=metrics/telegraf component=internet_speed metric=internet_speed_upload | avg by host,location,ip, service,environment,_sourcehost",
+                    "queryType": "Metrics",
+                    "queryKey": "A",
+                    "metricsQueryMode": "Advanced",
+                    "metricsQueryData": null,
+                    "tracesQueryData": null,
+                    "parseMode": "Auto",
+                    "timeSource": "Message"
+                }
+            ],
+            "description": "",
+            "timeRange": {
+                "type": "BeginBoundedTimeRange",
+                "from": {
+                    "type": "RelativeTimeRangeBoundary",
+                    "relativeTime": "-1h"
+                },
+                "to": null
+            },
             "coloringRules": null,
             "linkedDashboards": []
         }
